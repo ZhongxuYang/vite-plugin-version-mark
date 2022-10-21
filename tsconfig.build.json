@@ -1,0 +1,10 @@
+{ 
+  "extends": "./tsconfig.json", // 拓展 tsconfig.json 的配置
+  "compilerOptions": {
+    "noEmit": false, // 允许生成文件
+    "declaration": true, // 需要设置为 true 来支持类型
+    "emitDeclarationOnly": true, // 只生成类型文件
+    "declarationDir": "lib" // 类型文件的导出目录
+  },
+  "include": ["src/*"] // 编译目标仅为 src 文件夹下的文件
+}

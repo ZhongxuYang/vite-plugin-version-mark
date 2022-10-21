@@ -1,0 +1,39 @@
+{
+  "name": "vite-plugin-version-mark",
+  "version": "0.0.1",
+  "description": "Automatically insert the version or git_commit_sha in your project",
+  "keywords": [
+    "git",
+    "version",
+    "plugin",
+    "vite"
+  ],
+  "author": "ZhongxuYang <himatthew@foxmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/vite-plugin-version-mark.js",
+      "require": "./lib/vite-plugin-version-mark.umd.cjs"
+    },
+    "./*": "./*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhongxuYang/vite-plugin-version-mark.git"
+  },
+  "homepage": "https://github.com/ZhongxuYang/vite-plugin-version-mark.git",
+  "main": "./lib/vite-plugin-version-mark.umd.cjs",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.3",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.8"
+  }
+}

@@ -40,7 +40,7 @@ export default defineConfig({
 - `version` - application version (`version in package.json` by default)
 - `ifGitSHA` - use git commit SHA as the version (`false` by default)
 - `ifShortSHA` - use git commit short SHA (`true` by default)
-- `ifMeta` - add \<meta name="application-name" content="${appName}$ version: ${version}$"> in the \<head> (`true` by default)
+- `ifMeta` - add \<meta name="application-name" content="*appName* version: *version*"> in the \<head> (`true` by default)
 - `ifLog` - print info in the Console (`true` by default)
 
 Then you can use `vite-plugin-version-mark` ! 🎉

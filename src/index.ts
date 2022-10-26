@@ -8,6 +8,7 @@ interface VitePluginVersionMarkInput {
   ifShortSHA?: boolean
   ifMeta?: boolean
   ifLog?: boolean
+  ifGlobal?: boolean
 }
 
 const getGitSHA = (ifShortSHA: boolean) => {
@@ -33,10 +34,11 @@ export const vitePluginVersionMark: (input?: VitePluginVersionMarkInput) => Plug
     ifShortSHA = true,
     ifMeta = true,
     ifLog = true,
+    ifGlobal = true,
   } = input
 
   return {
-    name: 'vite-plugin-version-log',
+    name: 'vite-plugin-version-mark',
 
     async transformIndexHtml() {
       const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA) : version
@@ -55,6 +57,11 @@ export const vitePluginVersionMark: (input?: VitePluginVersionMarkInput) => Plug
         tag: 'script',
         injectTo: 'body',
         children: `console.log("${printInfo}")`
+      })
+      ifGlobal && els.push({
+        tag: 'script',
+        injectTo: 'body',
+        children: `__${name?.toLocaleUpperCase?.()}_VERSION__ = "${printVersion}"`
       })
 
       return els

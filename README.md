@@ -23,10 +23,13 @@ import {vitePluginVersionMark} from 'vite-plugin-version-mark'
 export default defineConfig({
   plugins: [
     vitePluginVersionMark({
+      // name: 'test-app',
+      // version: '0.0.1',
       ifGitSHA: true,
       ifShortSHA: true,
       ifMeta: true,
       ifLog: true,
+      ifGlobal: true,
     })
   ],
 })
@@ -42,5 +45,6 @@ export default defineConfig({
 - `ifShortSHA` - use git commit short SHA (`true` by default)
 - `ifMeta` - add \<meta name="application-name" content="*appName* version: *version*"> in the \<head> (`true` by default)
 - `ifLog` - print info in the Console (`true` by default)
+- `ifGlobal` - set a variable named \`___${APPNAME}_VERSION__\` in the window. (`true` by default)
 
 Then you can use `vite-plugin-version-mark` ! 🎉

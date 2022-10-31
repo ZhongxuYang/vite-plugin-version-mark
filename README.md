@@ -8,6 +8,9 @@
   <a href="https://github.com/vuejs/vite-plugin-version-mark/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vite-plugin-version-mark.svg" alt="License"></a>
 </p>
 
+## Demo
+![demo screen shot](./docs/static/iShot.png)
+
 ## Install
 ```sh
 yarn add -D vite-plugin-version-mark

@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-version-mark",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Automatically insert the version or git_commit_sha in your project",
   "keywords": [
     "git",

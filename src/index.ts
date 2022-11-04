@@ -42,7 +42,8 @@ export const vitePluginVersionMark: (input?: VitePluginVersionMarkInput) => Plug
 
     async transformIndexHtml() {
       const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA) : version
-      const printInfo = `${name} version: ${printVersion}`
+      const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
+      const printInfo = `${printName}: ${printVersion}`
 
       const els: IndexHtmlTransformResult = []
       ifMeta && els.push({
@@ -61,7 +62,7 @@ export const vitePluginVersionMark: (input?: VitePluginVersionMarkInput) => Plug
       ifGlobal && els.push({
         tag: 'script',
         injectTo: 'body',
-        children: `__${name?.toLocaleUpperCase?.()}_VERSION__ = "${printVersion}"`
+        children: `__${printName}__ = "${printVersion}"`
       })
 
       return els

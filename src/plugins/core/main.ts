@@ -28,25 +28,25 @@ const getGitSHA = (ifShortSHA: boolean) => {
 
 export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
   const {
-      name = process.env['npm_package_name'],
-      version = process.env['npm_package_version'],
-      ifGitSHA = false,
-      ifShortSHA = true,
-      ifMeta = true,
-      ifLog = true,
-      ifGlobal = true,
-    } = options
+    name = process.env['npm_package_name'],
+    version = process.env['npm_package_version'],
+    ifGitSHA = false,
+    ifShortSHA = true,
+    ifMeta = true,
+    ifLog = true,
+    ifGlobal = true,
+  } = options
 
-    const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA) : version
-    const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
-    const printInfo = `${printName}: ${printVersion}`
+  const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA) : version
+  const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
+  const printInfo = `${printName}: ${printVersion}`
 
-    return {
-      ifMeta,
-      ifLog,
-      ifGlobal,
-      printVersion,
-      printName,
-      printInfo,
-    }
+  return {
+    ifMeta,
+    ifLog,
+    ifGlobal,
+    printVersion,
+    printName,
+    printInfo,
+  }
 }

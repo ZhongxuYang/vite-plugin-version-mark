@@ -5597,6 +5597,11 @@ vite-plugin-inspect@^0.7.28:
     picocolors "^1.0.0"
     sirv "^2.0.3"
 
+vite-plugin-version-mark@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/vite-plugin-version-mark/-/vite-plugin-version-mark-0.0.5.tgz#c6ce0c5321316fc9c1151b0beec8be202c984ddb"
+  integrity sha512-bltcOz1wqT4ioNtLbJ4KEAwJqCBm1dpZ+DnhcvpeziF19mHffiUYscbv9w2kXWslba7S3g4T2gvS4rRYfxyatw==
+
 vite-plugin-vue-inspector@^3.4.2:
   version "3.4.2"
   resolved "https://registry.npmjs.org/vite-plugin-vue-inspector/-/vite-plugin-vue-inspector-3.4.2.tgz#6fe5757ca7d2ffac3721510587e2b8bc2791f040"
@@ -5777,6 +5782,7 @@ wide-align@^1.1.2, wide-align@^1.1.5:
     string-width "^1.0.2 || 2 || 3 || 4"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

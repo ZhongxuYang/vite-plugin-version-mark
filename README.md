@@ -18,6 +18,7 @@ yarn add -D vite-plugin-version-mark
 ```
 
 ## Usage
+### Vite
 ```ts
 // vite.config.ts
 import {defineConfig} from 'vite'
@@ -34,6 +35,24 @@ export default defineConfig({
       ifLog: true,
       ifGlobal: true,
     })
+  ],
+})
+```
+
+### Nuxt3+
+```ts
+// nuxt.config.ts
+import {nuxtVersionMark} from 'vite-plugin-version-mark'
+
+export default defineNuxtConfig({
+  modules: [
+    () => nuxtVersionMark({
+      ifGitSHA: true, 
+      ifShortSHA: true, 
+      ifMeta: true, 
+      ifLog: true, 
+      ifGlobal: true 
+    }),
   ],
 })
 ```

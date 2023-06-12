@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-version-mark",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Automatically insert the version or git_commit_sha in your Vite/Nuxt project.",
   "keywords": [
     "git",
@@ -16,19 +16,22 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/vite/index.js",
+      "require": "./dist/vite/index.cjs"
     },
-    "./*": "./*"
+    "./nuxt/*": {
+      "import": "./dist/nuxt/index.js",
+      "require": "./dist/nuxt/index.cjs"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZhongxuYang/vite-plugin-version-mark.git"
   },
   "homepage": "https://github.com/ZhongxuYang/vite-plugin-version-mark.git",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/vite/index.cjs",
+  "module": "./dist/vite/index.js",
+  "types": "./dist/vite/index.d.ts",
   "files": [
     "dist"
   ],

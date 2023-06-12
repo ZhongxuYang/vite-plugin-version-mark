@@ -395,10 +395,10 @@ typescript@^5.0.2:
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.1.3.tgz#8d84219244a6b40b6fb2b33cc1c062f715b9e826"
   integrity sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==
 
-vite-plugin-version-mark@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/vite-plugin-version-mark/-/vite-plugin-version-mark-0.0.5.tgz#c6ce0c5321316fc9c1151b0beec8be202c984ddb"
-  integrity sha512-bltcOz1wqT4ioNtLbJ4KEAwJqCBm1dpZ+DnhcvpeziF19mHffiUYscbv9w2kXWslba7S3g4T2gvS4rRYfxyatw==
+vite-plugin-version-mark@^0.0.7-beta.3:
+  version "0.0.7-beta.3"
+  resolved "https://registry.npmjs.org/vite-plugin-version-mark/-/vite-plugin-version-mark-0.0.7-beta.3.tgz#118c6245606ed56fb5238103b3b12f4947a9ff86"
+  integrity sha512-AFpXn1qVb7GshmqbUA64/PN1q6pux9ZVtky4J+OBafG+6mgQLHfPZRG5CZ2AzcNhOnmy7olFKnZ3I3xNfHUK2A==
 
 vite@^4.3.9:
   version "4.3.9"

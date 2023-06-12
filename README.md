@@ -3,9 +3,17 @@
 > Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
 
 <p align="center">
+  <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
+    <img src="./docs/static/logo.svg" width="200px" />
+  </a>
+  <br />
   <img src="https://img.shields.io/npm/dm/vite-plugin-version-mark.svg" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/vite-plugin-version-mark"><img src="https://img.shields.io/npm/v/vite-plugin-version-mark.svg" alt="Version"></a>
-  <a href="https://github.com/vuejs/vite-plugin-version-mark/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vite-plugin-version-mark.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/vite-plugin-version-mark">
+    <img src="https://img.shields.io/npm/v/vite-plugin-version-mark.svg" alt="Version">
+  </a>
+  <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
+    <img src="https://img.shields.io/npm/l/vite-plugin-version-mark.svg" alt="License">
+  </a>
 </p>
 
 ## Demo
@@ -42,17 +50,15 @@ export default defineConfig({
 ### Nuxt3+
 ```ts
 // nuxt.config.ts
-import {nuxtVersionMark} from 'vite-plugin-version-mark'
-
 export default defineNuxtConfig({
   modules: [
-    () => nuxtVersionMark({
+    ['vite-plugin-version-mark/nuxt', {
       ifGitSHA: true, 
       ifShortSHA: true, 
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true 
-    }),
+    }]
   ],
 })
 ```

@@ -1,7 +1,9 @@
+// https://github.com/nuxt-modules/google-adsense/blob/master/src/module.ts
 import {defineNuxtModule} from '@nuxt/kit'
 import {VitePluginVersionMarkInput, analyticOptions} from './core/main'
 
-export const nuxtVersionMark = defineNuxtModule<VitePluginVersionMarkInput>({
+type ModuleOptions = VitePluginVersionMarkInput
+const nuxtVersionMark = defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-version-mark',
   },
@@ -31,3 +33,6 @@ export const nuxtVersionMark = defineNuxtModule<VitePluginVersionMarkInput>({
     })
   }
 })
+
+export type { ModuleOptions }
+export default nuxtVersionMark

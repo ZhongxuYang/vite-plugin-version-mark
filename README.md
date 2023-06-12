@@ -1,6 +1,6 @@
 # vite-plugin-version-mark
 
-> Automatically insert the version or git_commit_sha in your project
+> Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
 
 <p align="center">
   <img src="https://img.shields.io/npm/dm/vite-plugin-version-mark.svg" alt="Downloads"></a>

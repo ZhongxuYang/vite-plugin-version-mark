@@ -8,7 +8,8 @@
     "log",
     "version",
     "plugin",
-    "vite"
+    "vite",
+    "nuxt"
   ],
   "author": "ZhongxuYang <himatthew@foxmail.com>",
   "license": "MIT",

@@ -15,8 +15,10 @@
 [![types][types-src]][types-href]
 [![License][license-src]][license-href]
 
-[![Awesome][awesome-src]][awesome-href]
+[![Vite][vite-src]][vite-href]
 [![Nuxt][nuxt-src]][nuxt-href]
+
+[![Awesome][awesome-src]][awesome-href]
 
 </div>
 
@@ -96,6 +98,9 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?&logo=nuxt.js
 [nuxt-href]: https://nuxt.com
+
+[vite-src]: https://img.shields.io/badge/Vite-18181B?&logo=vite
+[vite-href]: https://vitejs.dev
 
 [awesome-src]: https://awesome.re/mentioned-badge.svg
 [awesome-href]: https://github.com/vitejs/awesome-vite#transformers

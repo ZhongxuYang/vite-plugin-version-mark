@@ -2,19 +2,23 @@
 
 > Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
 
-<p align="center">
+<div align="center">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
     <img src="./docs/static/logo.svg" width="200px" />
   </a>
-  <br />
-  <img src="https://img.shields.io/npm/dm/vite-plugin-version-mark.svg" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/vite-plugin-version-mark">
-    <img src="https://img.shields.io/npm/v/vite-plugin-version-mark.svg" alt="Version">
-  </a>
-  <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
-    <img src="https://img.shields.io/npm/l/vite-plugin-version-mark.svg" alt="License">
-  </a>
-</p>
+</div>
+
+<div align="center">
+
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![types][types-src]][types-href]
+[![License][license-src]][license-href]
+
+[![Awesome][awesome-src]][awesome-href]
+[![Nuxt][nuxt-src]][nuxt-href]
+
+</div>
 
 ## Demo
 ![demo screen shot](./docs/static/iShot.png)
@@ -76,3 +80,22 @@ export default defineNuxtConfig({
 - `ifGlobal` - set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window. (`true` by default)
 
 Then you can use `vite-plugin-version-mark` ! 🎉
+
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/vite-plugin-version-mark/latest.svg?style=flat&colorA=18181B
+[npm-version-href]: https://npmjs.com/package/vite-plugin-version-mark
+
+[npm-downloads-src]: https://img.shields.io/npm/dm/vite-plugin-version-mark.svg?style=flat&colorA=18181B
+[npm-downloads-href]: https://npmjs.com/package/vite-plugin-version-mark
+
+[types-src]: https://img.shields.io/npm/types/vite-plugin-version-mark.svg?style=flat&colorA=18181B
+[types-href]: https://npmjs.com/package/vite-plugin-version-mark
+
+[license-src]: https://img.shields.io/npm/l/vite-plugin-version-mark.svg?style=flat&colorA=18181B
+[license-href]: https://npmjs.com/package/vite-plugin-version-mark
+
+[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?&logo=nuxt.js
+[nuxt-href]: https://nuxt.com
+
+[awesome-src]: https://awesome.re/mentioned-badge.svg
+[awesome-href]: https://github.com/vitejs/awesome-vite#transformers

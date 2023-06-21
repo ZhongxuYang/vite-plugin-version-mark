@@ -11,7 +11,7 @@ export interface VitePluginVersionMarkInput {
   ifGlobal?: boolean
 }
 
-const getGitSHA = (ifShortSHA: boolean, gitCommand: string) => {
+const getGitSHA = (ifShortSHA: boolean, gitCommand: string | undefined) => {
   const {exec} = childProcess
   let sh: string
   if (gitCommand) {
@@ -40,7 +40,7 @@ export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
     version = process.env['npm_package_version'],
     ifGitSHA = false,
     ifShortSHA = true,
-    gitCommand = 'git rev-parse --short HEAD',
+    gitCommand = undefined,
     ifMeta = true,
     ifLog = true,
     ifGlobal = true,

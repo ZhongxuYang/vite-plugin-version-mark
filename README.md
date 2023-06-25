@@ -43,6 +43,7 @@ export default defineConfig({
     vitePluginVersionMark({
       // name: 'test-app',
       // version: '0.0.1',
+      // command: 'git describe --tags',
       ifGitSHA: true,
       ifShortSHA: true,
       ifMeta: true,
@@ -59,11 +60,14 @@ export default defineConfig({
 export default defineNuxtConfig({
   modules: [
     ['vite-plugin-version-mark/nuxt', {
+      // name: 'test-app',
+      // version: '0.0.1',
+      // command: 'git describe --tags',
       ifGitSHA: true, 
       ifShortSHA: true, 
       ifMeta: true, 
       ifLog: true, 
-      ifGlobal: true 
+      ifGlobal: true,
     }]
   ],
 })

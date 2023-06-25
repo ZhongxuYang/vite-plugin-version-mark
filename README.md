@@ -73,24 +73,34 @@ export default defineNuxtConfig({
 })
 ```
 
+Then you can use `vite-plugin-version-mark` ! 🎉
+
 ## Config
 
 `vite-plugin-version-mark` can be print application version in the `Console` or add `<meta>` in HTML element. 
 
-- `name` - application name (`name in package.json` by default)
+| name | description | type | default | supported |
+| --- | --- | --- | --- | --- |
+| name | application name | `string` | `name in package.json` | `0.0.1+` |
+| version | application version | `string` | `version in package.json` | `0.0.1+` |
+| ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
+| ifShortSHA | use git commit short SHA as the version | `boolean` | true | `0.0.1+` |
+| ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
+| ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window | `boolean` | true | `0.0.4+` |
+| ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
+| command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
+
+
+<!-- - `name` - application name (`name in package.json` by default)
 - `version` - application version (`version in package.json` by default)
 - `ifGitSHA` - use git commit SHA as the version (`false` by default)
 - `ifShortSHA` - use git commit short SHA (`true` by default)
 - `ifMeta` - add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> (`true` by default)
 - `ifLog` - print info in the Console (`true` by default)
 - `ifGlobal` - set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window. (`true` by default)
-- `command` - provide a custom command to retrieve the version. For example: `git describe --tags` (`git rev-parse --short HEAD` by default)
-
+- `command` - provide a custom command to retrieve the version. For example: `git describe --tags` (`git rev-parse --short HEAD` by default) -->
 
 View [CHANGELOG](./CHANGELOG.md)
-
-Then you can use `vite-plugin-version-mark` ! 🎉
-
 
 
 <!-- Badges -->

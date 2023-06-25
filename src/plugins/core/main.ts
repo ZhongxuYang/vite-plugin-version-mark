@@ -1,21 +1,29 @@
 import childProcess from 'child_process'
 
-export interface VitePluginVersionMarkInput {
+interface VitePluginVersionMarkBaseInput {
   name?: string
   version?: string
-  ifGitSHA?: boolean
-  ifShortSHA?: boolean
-  gitCommand?: string
   ifMeta?: boolean
   ifLog?: boolean
   ifGlobal?: boolean
 }
 
-const getGitSHA = (ifShortSHA: boolean, gitCommand: string | undefined) => {
+interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
+  ifGitSHA?: boolean
+  ifShortSHA?: boolean
+}
+interface VitePluginVersionMarkCommandInput extends VitePluginVersionMarkBaseInput {
+  command?: string
+}
+
+
+export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput
+
+const getGitSHA = (ifShortSHA: boolean, command: string | undefined) => {
   const {exec} = childProcess
   let sh: string
-  if (gitCommand) {
-    sh = gitCommand
+  if (command) {
+    sh = command
   } else if (ifShortSHA) {
     sh = 'git rev-parse --short HEAD'
   } else {
@@ -40,13 +48,13 @@ export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
     version = process.env['npm_package_version'],
     ifGitSHA = false,
     ifShortSHA = true,
-    gitCommand = undefined,
     ifMeta = true,
     ifLog = true,
     ifGlobal = true,
+    command = undefined,
   } = options
 
-  const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA, gitCommand) : version
+  const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA, command) : version
   const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
   const printInfo = `${printName}: ${printVersion}`
 

@@ -1,0 +1,49 @@
+# https://juejin.cn/post/6935671937083375652
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body_path: ${{ github.workspace }}/CHANGELOG.md
+          draft: false
+          prerelease: false
+
+  publish-npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    # Skip this step in forks
+    if: ${{ github.repository_owner == 'ZhongxuYang' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn && yarn build
+
+      - name: Publish packages to NPM
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish

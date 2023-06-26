@@ -81,8 +81,8 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 
 | name | description | type | default | supported |
 | --- | --- | --- | --- | --- |
-| name | application name | `string` | `name in package.json` | `0.0.1+` |
-| version | application version | `string` | `version in package.json` | `0.0.1+` |
+| name | application name | `string` | `name` in package.json | `0.0.1+` |
+| version | application version | `string` | `version` in package.json | `0.0.1+` |
 | ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
 | ifShortSHA | use git commit short SHA as the version | `boolean` | true | `0.0.1+` |
 | ifLog | print info in the Console | `boolean` | true | `0.0.1+` |

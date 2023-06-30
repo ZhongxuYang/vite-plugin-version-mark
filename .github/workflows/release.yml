@@ -1,4 +1,3 @@
-# https://juejin.cn/post/6935671937083375652
 name: Release
 
 on:
@@ -46,4 +45,7 @@ jobs:
       - name: Publish packages to NPM
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm whoami
+          npm publish

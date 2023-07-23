@@ -7,7 +7,8 @@ export default defineNuxtConfig({
       ifShortSHA: true, 
       ifMeta: true, 
       ifLog: true, 
-      ifGlobal: true
+      ifGlobal: true,
+      ifImportMeta: true,
     }]
   ],
 })

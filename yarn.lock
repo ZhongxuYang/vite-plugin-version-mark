@@ -1611,6 +1611,11 @@ util-deprecate@~1.0.1:
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
+vite-plugin-global-const@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/vite-plugin-global-const/-/vite-plugin-global-const-0.0.3.tgz#2ea169b8e3a562616937c2fdd14c68e467766e9d"
+  integrity sha512-HQBBFoM9h3KGnTBgWaWhlKEOaq5QjxBnLYgMc1UDmgr+DIXp5OUARMOAB/9EPcNO3N+bSygKPI4f10iJvjjOUQ==
+
 vite@^3.1.8:
   version "3.1.8"
   resolved "https://registry.npmjs.org/vite/-/vite-3.1.8.tgz#fa29144167d19b773baffd65b3972ea4c12359c9"

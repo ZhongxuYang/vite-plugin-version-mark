@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.0.9
+
+* Support add `import.meta.env.__${APPNAME}_VERSION__` in the App (by [@censujiang](https://github.com/censujiang))
+
 ## v0.0.8
 
 * Support provide a custom command to retrieve the version (by [@kgutwin](https://github.com/kgutwin))

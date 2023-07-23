@@ -1,5 +1,6 @@
-import {VitePluginVersionMarkInput, analyticOptions} from './core/main'
-import type {Plugin, IndexHtmlTransformResult} from 'vite'
+import { VitePluginVersionMarkInput, analyticOptions } from './core/main'
+import type { Plugin, IndexHtmlTransformResult } from 'vite'
+import { defineConstCore } from 'vite-plugin-global-const'
 
 export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Plugin = (options = {}) => {
   return {
@@ -37,5 +38,25 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
 
       return els
     },
+    async config() {
+      const {
+        ifImportMeta,
+        printVersion,
+        printName,
+      } = await analyticOptions(options)
+
+      if (ifImportMeta === true) {
+        const name = `__${printName}_VERSION__`
+        const define = defineConstCore({
+          [name]: printVersion
+        })
+
+        return {
+          define
+        }
+      } else {
+        return
+      }
+    }
   }
 }

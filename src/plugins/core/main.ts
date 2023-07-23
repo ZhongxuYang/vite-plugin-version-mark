@@ -6,6 +6,7 @@ interface VitePluginVersionMarkBaseInput {
   ifMeta?: boolean
   ifLog?: boolean
   ifGlobal?: boolean
+  ifImportMeta?: boolean
 }
 
 interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
@@ -52,6 +53,7 @@ export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
     ifLog = true,
     ifGlobal = true,
     command = undefined,
+    ifImportMeta = false,
   } = options
 
   const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA, command) : version
@@ -65,5 +67,6 @@ export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
     printVersion,
     printName,
     printInfo,
+    ifImportMeta,
   }
 }

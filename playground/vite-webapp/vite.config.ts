@@ -15,6 +15,7 @@ export default defineConfig({
       ifLog: true, 
       ifGlobal: true,
       // command: 'git describe --tags'
+      ifImportMeta: true,
     }),
   ],
 })

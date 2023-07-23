@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+
+const version = computed(()=>{
+  return import.meta.env.__VITE_WEBAPP_VERSION_VERSION__
+})
 </script>
 
 <template>
@@ -11,6 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  {{ version }}
   <HelloWorld msg="Vite + Vue" />
 </template>
 

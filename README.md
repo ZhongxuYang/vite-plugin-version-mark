@@ -49,6 +49,7 @@ export default defineConfig({
       ifMeta: true,
       ifLog: true,
       ifGlobal: true,
+      ifImportMeta: true,
     })
   ],
 })
@@ -68,6 +69,7 @@ export default defineNuxtConfig({
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
+      ifImportMeta: true,
     }]
   ],
 })
@@ -88,6 +90,7 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 | ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
 | ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window | `boolean` | true | `0.0.4+` |
 | ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
+| ifImportMeta | add `import.meta.env.__${APPNAME}_VERSION__` in the `vite.config.ts` | `boolean` | true | `0.0.9+` |
 | command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
 
 

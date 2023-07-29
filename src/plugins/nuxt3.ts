@@ -20,6 +20,7 @@ const nuxtVersionMark = defineNuxtModule<ModuleOptions>({
 
     nuxt.options.app.head.meta = nuxt.options.app.head.meta || []
     nuxt.options.app.head.script = nuxt.options.app.head.script || []
+    nuxt.options.vite.define = nuxt.options.vite.define || {}
 
     ifMeta && nuxt.options.app.head.meta.push({
       name: 'application-name',
@@ -28,9 +29,7 @@ const nuxtVersionMark = defineNuxtModule<ModuleOptions>({
     ifLog && nuxt.options.app.head.script.push({
       children: `console.log("${printInfo}")`
     })
-    ifGlobal && nuxt.options.app.head.script.push({
-      children: `__${printName}__ = "${printVersion}"`
-    })
+    ifGlobal && (nuxt.options.vite.define[ `__${printName}__`] = JSON.stringify(printVersion))
   }
 })
 

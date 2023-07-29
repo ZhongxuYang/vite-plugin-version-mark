@@ -77,7 +77,7 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 
 ## Config
 
-`vite-plugin-version-mark` can be print application version in the `Console` or add `<meta>` in HTML element. 
+> `vite-plugin-version-mark` can be print application version in the `Console`, defined `global` or add `<meta>` in HTML element. 
 
 | name | description | type | default | supported |
 | --- | --- | --- | --- | --- |
@@ -86,19 +86,40 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 | ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
 | ifShortSHA | use git commit short SHA as the version | `boolean` | true | `0.0.1+` |
 | ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
-| ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window | `boolean` | true | `0.0.4+` |
+| ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window<br/>[For TypeScript users, make sure to add the type declarations in the env.d.ts or vite-env.d.ts file to get type checks and Intellisense.](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
 | command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
 
 
-<!-- - `name` - application name (`name in package.json` by default)
-- `version` - application version (`version in package.json` by default)
-- `ifGitSHA` - use git commit SHA as the version (`false` by default)
-- `ifShortSHA` - use git commit short SHA (`true` by default)
-- `ifMeta` - add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> (`true` by default)
-- `ifLog` - print info in the Console (`true` by default)
-- `ifGlobal` - set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window. (`true` by default)
-- `command` - provide a custom command to retrieve the version. For example: `git describe --tags` (`git rev-parse --short HEAD` by default) -->
+## Other
+
+### How to get the version in your vitePlugin?
+```ts
+// vite.config.ts
+
+import {defineConfig} from 'vite'
+import type {Plugin} from 'vite'
+import {vitePluginVersionMark} from 'vite-plugin-version-mark'
+
+const yourPlugin: () => Plugin = () => ({
+  name: 'test-plugin',
+  config (config) {
+    // get version in vitePlugin if you open `ifGlobal`
+    console.log(config.define)
+  }
+})
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    vitePluginVersionMark({
+      ifGlobal: true,
+    }),
+    yourPlugin(),
+  ],
+})
+
+```
 
 View [CHANGELOG](./CHANGELOG.md)
 

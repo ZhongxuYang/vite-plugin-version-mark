@@ -16,8 +16,15 @@ interface VitePluginVersionMarkCommandInput extends VitePluginVersionMarkBaseInp
   command?: string
 }
 
-
 export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput
+export type VitePluginVersionMarkConfig = {
+  ifMeta: boolean
+  ifLog: boolean
+  ifGlobal: boolean
+  printVersion: string
+  printName: string
+  printInfo: string
+}
 
 const getGitSHA = (ifShortSHA: boolean, command: string | undefined) => {
   const {exec} = childProcess
@@ -42,7 +49,7 @@ const getGitSHA = (ifShortSHA: boolean, command: string | undefined) => {
   })
 }
 
-export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
+export const analyticOptions: (options: VitePluginVersionMarkInput) => Promise<VitePluginVersionMarkConfig> = async (options) => {
   const {
     name = process.env['npm_package_name'],
     version = process.env['npm_package_version'],
@@ -54,7 +61,7 @@ export const analyticOptions = async (options: VitePluginVersionMarkInput) => {
     command = undefined,
   } = options
 
-  const printVersion = ifGitSHA ? await getGitSHA(ifShortSHA, command) : version
+  const printVersion = (ifGitSHA ? await getGitSHA(ifShortSHA, command) : version) as string
   const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
   const printInfo = `${printName}: ${printVersion}`
 

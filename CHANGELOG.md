@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.0.10
+
+* Fix the bug that the `version` is not defined global after `ifGlobal: true`
 ## v0.0.9
 
 * The ifGlobal setting mode is switched to vite.define, so that the node.js environment can read (by [@censujiang](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/4))

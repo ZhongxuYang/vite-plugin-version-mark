@@ -29,7 +29,12 @@ const nuxtVersionMark = defineNuxtModule<ModuleOptions>({
     ifLog && nuxt.options.app.head.script.push({
       children: `console.log("${printInfo}")`
     })
-    ifGlobal && (nuxt.options.vite.define[ `__${printName}__`] = JSON.stringify(printVersion))
+    if (ifGlobal) {
+      nuxt.options.vite.define[ `__${printName}__`] = JSON.stringify(printVersion)
+      nuxt.options.app.head.script.push({
+        children: `__${printName}__ = "${printVersion}"`
+      })
+    }
   }
 })
 

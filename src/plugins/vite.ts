@@ -32,6 +32,9 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       const {
         ifLog,
         ifMeta,
+        ifGlobal,
+        printName,
+        printVersion,
         printInfo,
       } = await getVersionMarkConfig()
 
@@ -48,6 +51,11 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
         tag: 'script',
         injectTo: 'body',
         children: `console.log("${printInfo}")`
+      })
+      ifGlobal && els.push({
+        tag: 'script',
+        injectTo: 'body',
+        children: `__${printName}__ = "${printVersion}"`
       })
 
       return els

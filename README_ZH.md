@@ -1,12 +1,13 @@
 <div style="text-align: right;">
 
-[中文](./README_ZH.md) | English
+中文 | [English](./README.md)
 
 </div>
 
+
 # vite-plugin-version-mark
 
-> Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
+> 自动插入版本号到你的 Vite/Nuxt 项目中.
 
 <div align="center">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
@@ -28,16 +29,16 @@
 
 </div>
 
-## Demo
+## 使用样例
 ![demo screen shot](./docs/static/iShot.png)
 
-## Install
+## 安装
 ```sh
 yarn add -D vite-plugin-version-mark
-# OR npm install -D vite-plugin-version-mark
+# 或者 npm install -D vite-plugin-version-mark
 ```
 
-## Usage
+## 使用
 ### Vite
 ```ts
 // vite.config.ts
@@ -79,27 +80,27 @@ export default defineNuxtConfig({
 })
 ```
 
-Then you can use `vite-plugin-version-mark` ! 🎉
+至此，你就在开始使用 `vite-plugin-version-mark` 啦! 🎉
 
-## Config
+## 配置
 
-> `vite-plugin-version-mark` can be print application version in the `Console`, defined `global` or add `<meta>` in HTML element. 
+> `vite-plugin-version-mark` 可以在 `Console` 中打印版本号，也可以在全局定义变量供您使用， 同时支持在 `<meta>` 标签中显示版本号。
 
-| name | description | type | default | supported |
+| 属性 | 描述 | 类型 | 默认值 | 支持版本 |
 | --- | --- | --- | --- | --- |
-| name | application name | `string` | `name` in package.json | `0.0.1+` |
-| version | application version | `string` | `version` in package.json | `0.0.1+` |
-| ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
-| ifShortSHA | use git commit short SHA as the version | `boolean` | true | `0.0.1+` |
-| ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
-| ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window<br/>[For TypeScript users, make sure to add the type declarations in the env.d.ts or vite-env.d.ts file to get type checks and Intellisense.](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
-| ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
-| command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
+| name | 应用名 | `string` | 在 `package.json` 中定义的 `name` 属性 | `0.0.1+` |
+| version | 应用版本 | `string` | 在 `package.json` 中定义的 `version` 属性 | `0.0.1+` |
+| ifGitSHA | 使用git commitSHA作为版本号 | `boolean` | false | `0.0.1+` |
+| ifShortSHA | 使用git的短commitSHA作为版本号 | `boolean` | true | `0.0.1+` |
+| ifLog | 在控制台打印版本信息 | `boolean` | true | `0.0.1+` |
+| ifGlobal | 在window上定义变量 *\`\_\_${APPNAME}\_VERSION\_\_\`* <br/>[对于TypeScript使用者, 请确保您在 env.d.ts 或者 vite-env.d.ts 文件中定义该变量，以便通过类型检查。](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
+| ifMeta | 在 `<head>` 中添加 `<meta name="application-name" content="{APPNAME_VERSION}: {version}">` | `boolean` | true | `0.0.1+` |
+| command | 提供自定义指令，以便自定义版本号的获取方式 <br/>例如使用git tag作为版本号: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
 
 
-## Other
+## 其它
 
-### How to get the version in your vitePlugin?
+### 如何在您的vite插件中获取版本号？
 ```ts
 // vite.config.ts
 
@@ -127,7 +128,7 @@ export default defineConfig({
 
 ```
 
-View [CHANGELOG](./CHANGELOG.md)
+查看 [CHANGELOG](./CHANGELOG.md)
 
 
 <!-- Badges -->

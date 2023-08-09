@@ -2,7 +2,7 @@
 import {computed} from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-const versionInfo = computed(() => `Version: ${window.__VITE_WEBAPP_VERSION__}`)
+const versionInfo = computed(() => `Version: ${__VITE_WEBAPP_VERSION__}`)
 </script>
 
 <template>

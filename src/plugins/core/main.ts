@@ -6,6 +6,7 @@ interface VitePluginVersionMarkBaseInput {
   ifMeta?: boolean
   ifLog?: boolean
   ifGlobal?: boolean
+  ifExport?: boolean
 }
 
 interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
@@ -21,6 +22,7 @@ export type VitePluginVersionMarkConfig = {
   ifMeta: boolean
   ifLog: boolean
   ifGlobal: boolean
+  ifExport: boolean
   printVersion: string
   printName: string
   printInfo: string
@@ -58,6 +60,7 @@ export const analyticOptions: (options: VitePluginVersionMarkInput) => Promise<V
     ifMeta = true,
     ifLog = true,
     ifGlobal = true,
+    ifExport = false,
     command = undefined,
   } = options
 
@@ -69,6 +72,7 @@ export const analyticOptions: (options: VitePluginVersionMarkInput) => Promise<V
     ifMeta,
     ifLog,
     ifGlobal,
+    ifExport,
     printVersion,
     printName,
     printInfo,

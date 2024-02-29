@@ -7,7 +7,8 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
   const getVersionMarkConfig = async () => {
     if (!versionMarkConfig) versionMarkConfig = await analyticOptions(options)
     return versionMarkConfig
-  } 
+  }
+
   return {
     name: 'vite-plugin-version-mark',
 
@@ -26,6 +27,21 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
           },
         }
       }
+    },
+
+    async renderChunk(code, chunk, options) {
+      if (chunk.isEntry) {
+        const {
+          ifExport,
+          printName,
+          printVersion,
+        } = await getVersionMarkConfig()
+        
+        let modifiedCode = code
+        if (ifExport) modifiedCode += `\nexport const ${printName} = '${printVersion}';`
+  
+        return modifiedCode
+      } 
     },
 
     async transformIndexHtml() {

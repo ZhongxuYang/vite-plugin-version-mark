@@ -92,10 +92,11 @@ export default defineNuxtConfig({
 | version | 应用版本 | `string` | 在 `package.json` 中定义的 `version` 属性 | `0.0.1+` |
 | ifGitSHA | 使用git commitSHA作为版本号 | `boolean` | false | `0.0.1+` |
 | ifShortSHA | 使用git的短commitSHA作为版本号 | `boolean` | true | `0.0.1+` |
+| command | 提供自定义指令，以便自定义版本号的获取方式 <br/>例如使用git tag作为版本号: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
 | ifLog | 在控制台打印版本信息 | `boolean` | true | `0.0.1+` |
 | ifGlobal | 在window上定义变量 *\`\_\_${APPNAME}\_VERSION\_\_\`* <br/>[对于TypeScript使用者, 请确保您在 env.d.ts 或者 vite-env.d.ts 文件中定义该变量，以便通过类型检查。](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | 在 `<head>` 中添加 `<meta name="application-name" content="{APPNAME_VERSION}: {version}">` | `boolean` | true | `0.0.1+` |
-| command | 提供自定义指令，以便自定义版本号的获取方式 <br/>例如使用git tag作为版本号: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
+| ifExport | 在入口文件导出版本字段。这在您使用vite构建   `library mode`时或许会用到。<br />通过 `import { {APPNAME}_VERSION} from <your_library_name>` | `boolean` | false | `0.0.11+` |
 
 
 ## 其它

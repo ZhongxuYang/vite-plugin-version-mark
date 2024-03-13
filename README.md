@@ -50,7 +50,7 @@ export default defineConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
-      ifGitSHA: true,
+      // ifGitSHA: true,
       ifShortSHA: true,
       ifMeta: true,
       ifLog: true,
@@ -69,7 +69,7 @@ export default defineNuxtConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
-      ifGitSHA: true, 
+      // ifGitSHA: true, 
       ifShortSHA: true, 
       ifMeta: true, 
       ifLog: true, 
@@ -85,18 +85,19 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 
 > `vite-plugin-version-mark` can be print application version in the `Console`, defined `global` or add `<meta>` in HTML element. 
 
-| name | description | type | default | supported |
+| Name | Description | Type | Default | Supported |
 | --- | --- | --- | --- | --- |
 | name | application name | `string` | `name` in package.json | `0.0.1+` |
 | version | application version | `string` | `version` in package.json | `0.0.1+` |
 | ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
-| ifShortSHA | use git commit short SHA as the version | `boolean` | true | `0.0.1+` |
+| ifShortSHA | use git commit short SHA as the version | `boolean` | false | `0.0.1+` |
 | command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
 | ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
 | ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window<br/>[For TypeScript users, make sure to add the type declarations in the env.d.ts or vite-env.d.ts file to get type checks and Intellisense.](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
 | ifExport | export the version field in the entry file. This may be used when you use vite to build a `library mode`.<br/>Through `import { {APPNAME}_VERSION } from <your_library_name>` | `boolean` | false | `0.0.11+` |
 
+> The **version field** takes precedence: `command` > `ifShortSHA`  > `ifGitSHA` > `version`
 
 
 ## Other

@@ -14,14 +14,14 @@ const testPlugin: () => Plugin = () => ({
 export default defineConfig({
   plugins: [
     vue(),
-    vitePluginVersionMark({ 
-      ifGitSHA: true, 
-      ifShortSHA: true, 
+    vitePluginVersionMark({
+      // ifGitSHA: true, 
+      ifShortSHA: true,
+      // command: 'git describe --tags',
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
       ifExport: true,
-      // command: 'git describe --tags'
     }),
     testPlugin(),
   ],

@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+## v0.0.12
+
+* Update the confusing attributes `ifShortSHA` and `ifGitSHA`. If you want to enable `ifShortSHA`, you do not need to configure `ifGitSHA` to be `true`. (by [@littlecxm](https://github.com/ZhongxuYang/vite-plugin-version-mark/issues/8))
+* The default value of `ifShortSHA` is changed to `false`.
+
 ## v0.0.11
 
 * Support export version field in the entry file.

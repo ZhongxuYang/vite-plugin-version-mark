@@ -28,19 +28,11 @@ export type VitePluginVersionMarkConfig = {
   printInfo: string
 }
 
-const getGitSHA = (ifShortSHA: boolean, command: string | undefined) => {
+const execCommand = (command: string) => {
   const {exec} = childProcess
-  let sh: string
-  if (command) {
-    sh = command
-  } else if (ifShortSHA) {
-    sh = 'git rev-parse --short HEAD'
-  } else {
-    sh = 'git rev-parse HEAD'
-  }
 
   return new Promise((resolve, reject) => {
-    exec(sh, (error, stdout) => {
+    exec(command, (error, stdout) => {
       if (error) {
         reject(error)
       } else {
@@ -55,16 +47,16 @@ export const analyticOptions: (options: VitePluginVersionMarkInput) => Promise<V
   const {
     name = process.env['npm_package_name'],
     version = process.env['npm_package_version'],
+    command = undefined,
+    ifShortSHA = false,
     ifGitSHA = false,
-    ifShortSHA = true,
     ifMeta = true,
     ifLog = true,
     ifGlobal = true,
     ifExport = false,
-    command = undefined,
   } = options
-
-  const printVersion = (ifGitSHA ? await getGitSHA(ifShortSHA, command) : version) as string
+  const finalCommand = command ?? (ifShortSHA ? 'git rev-parse --short HEAD' : ifGitSHA ? 'git rev-parse HEAD' : undefined)
+  const printVersion = (finalCommand ? await execCommand(finalCommand) : version) as string
   const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
   const printInfo = `${printName}: ${printVersion}`
 

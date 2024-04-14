@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v0.0.13
+
+* Fix source Map warning on build.
+
 ## v0.0.12
 
 * Update the confusing attributes `ifShortSHA` and `ifGitSHA`. If you want to enable `ifShortSHA`, you do not need to configure `ifGitSHA` to be `true`. (by [@littlecxm](https://github.com/ZhongxuYang/vite-plugin-version-mark/issues/8))

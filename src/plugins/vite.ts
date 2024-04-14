@@ -39,8 +39,11 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
         
         let modifiedCode = code
         if (ifExport) modifiedCode += `\nexport const ${printName} = '${printVersion}';`
-  
-        return modifiedCode
+
+        return {
+          code: modifiedCode,
+          map: null,
+        }
       } 
     },
 

@@ -4,7 +4,7 @@ import { vitePluginVersionMark } from '../../dist/vite/index'
 export default defineConfig({
   build: {
     lib: {
-      entry: './lib/main.ts',
+      entry: './src/main.ts',
       name: 'Counter',
       fileName: 'counter'
     }

@@ -34,7 +34,8 @@
 
 ## 安装
 ```sh
-yarn add -D vite-plugin-version-mark
+pnpm add -D vite-plugin-version-mark
+# 或者 yarn add -D vite-plugin-version-mark
 # 或者 npm install -D vite-plugin-version-mark
 ```
 

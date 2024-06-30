@@ -33,7 +33,8 @@
 
 ## Install
 ```sh
-yarn add -D vite-plugin-version-mark
+pnpm add -D vite-plugin-version-mark
+# OR yarn add -D vite-plugin-version-mark
 # OR npm install -D vite-plugin-version-mark
 ```
 

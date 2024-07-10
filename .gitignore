@@ -6,6 +6,7 @@
 .vscode
 dist
 lib
+!__tests__/fixtures/lib
 node_modules
 pnpm-global
 demo

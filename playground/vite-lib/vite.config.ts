@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
-import { vitePluginVersionMark } from 'vite-plugin-version-mark'
+// @ts-ignore
+import { vitePluginVersionMark } from '../../src/plugins/vite'
 
 export default defineConfig({
   build: {

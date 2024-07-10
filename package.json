@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-version-mark",
-  "version": "0.1.0",
+  "version": "0.0.13",
   "description": "Automatically insert the version or git_commit_sha in your Vite/Nuxt project.",
   "keywords": [
     "git",
@@ -44,14 +44,14 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nuxt/kit": "^3.12.2",
-    "@nuxt/schema": "^3.12.2",
-    "@types/node": "^20.14.9",
+    "@nuxt/kit": "^3.12.3",
+    "@nuxt/schema": "^3.12.3",
+    "@types/node": "^20.14.10",
     "husky": "^9.0.11",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.12.3",
     "rollup": "^4.18.1",
     "tsup": "^8.1.0",
-    "typescript": "^5.5.2",
+    "typescript": "^5.5.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

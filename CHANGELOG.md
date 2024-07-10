@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.1.0
+
+* Yarn switch to pnpm.
+* Add unit tests.
+* Add commitlint.
+* Change logo.
 
 ## v0.0.13
 

@@ -9,9 +9,9 @@
 
 > 自动插入版本号到你的 Vite/Nuxt 项目中.
 
-<div align="center">
+<div align="center" style="padding: 20px 0;">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
-    <img src="./docs/static/logo.svg" width="200px" />
+    <img src="https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version.svg" width="200px" />
   </a>
 </div>
 
@@ -30,7 +30,7 @@
 </div>
 
 ## 使用样例
-![demo screen shot](./docs/static/iShot.png)
+![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)
 
 ## 安装
 ```sh
@@ -130,6 +130,14 @@ export default defineConfig({
   ],
 })
 
+```
+
+### 如何通过 `提交SHA` 来获取所属分支？
+
+通过下方的 `git` 指令，可以列出所有包含指定 `提交SHA` 的分支。
+
+```sh
+git branch -r --contains <COMMIT_SHA>
 ```
 
 查看 [CHANGELOG](./CHANGELOG.md)

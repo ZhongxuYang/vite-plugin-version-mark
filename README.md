@@ -8,9 +8,9 @@
 
 > Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
 
-<div align="center">
+<div align="center" style="padding: 20px 0;">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
-    <img src="./docs/static/logo.svg" width="200px" />
+    <img src="https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version.svg" width="200px" />
   </a>
 </div>
 
@@ -29,7 +29,7 @@
 </div>
 
 ## Demo
-![demo screen shot](./docs/static/iShot.png)
+![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)
 
 ## Install
 ```sh
@@ -129,6 +129,14 @@ export default defineConfig({
   ],
 })
 
+```
+
+### How to get the branch to which it belongs through `commit SHA`?
+
+Through the `git` command below, you can list all branches containing the specified `commit SHA`.
+
+```sh
+git branch -r --contains <COMMIT_SHA>
 ```
 
 View [CHANGELOG](./CHANGELOG.md)

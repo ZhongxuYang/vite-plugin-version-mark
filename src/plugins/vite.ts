@@ -1,7 +1,8 @@
-import {analyticOptions} from './core/main'
-import type {VitePluginVersionMarkInput, VitePluginVersionMarkConfig} from './core/main'
+import {analyticOptions} from './core'
+import type {VitePluginVersionMarkInput, VitePluginVersionMarkConfig} from './core'
 import type {Plugin, IndexHtmlTransformResult} from 'vite'
 
+export type {VitePluginVersionMarkInput}
 export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Plugin = (options = {}) => {
   let versionMarkConfig: VitePluginVersionMarkConfig
   const getVersionMarkConfig = async () => {

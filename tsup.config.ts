@@ -1,10 +1,10 @@
-import { defineConfig, Format } from "tsup";
+import { defineConfig, Format, Options } from "tsup"
 
 const defaultConfig = {
   sourcemap: true,
   clean: true,
   dts: true,
-  target: 'esnext',
+  target: 'esnext' as unknown as Options['target'],
   format: ['cjs', 'esm'] as unknown as Format,
 }
 

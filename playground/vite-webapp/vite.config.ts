@@ -1,7 +1,7 @@
 import {defineConfig} from 'vite'
 import type {Plugin} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import {vitePluginVersionMark} from '../../dist/vite/index'
+import {vitePluginVersionMark} from 'vite-plugin-version-mark'
 
 const testPlugin: () => Plugin = () => ({
   name: 'test-plugin',

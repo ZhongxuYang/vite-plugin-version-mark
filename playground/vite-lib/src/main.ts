@@ -1,16 +1,5 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
-// import { setupCounter } from '../lib/main'
-
-function setupCounter(element: HTMLButtonElement) {
-  let counter = 0;
-  const setCounter = (count: number) => {
-    counter = count;
-    element.innerHTML = `count is ${counter}`;
-  };
-  element.addEventListener("click", () => setCounter(++counter));
-  setCounter(0);
-}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -22,12 +11,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </a>
     <h1>Vite + TypeScript</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <span>version: ${__LIB_VERSION__}</span>
     </div>
     <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
+      You can also type <i>__LIB_VERSION__</i> into the console to get the version number.
     </p>
   </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)

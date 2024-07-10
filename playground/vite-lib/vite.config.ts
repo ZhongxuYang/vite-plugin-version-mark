@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { vitePluginVersionMark } from '../../dist/vite/index'
+import { vitePluginVersionMark } from 'vite-plugin-version-mark'
 
 export default defineConfig({
   build: {

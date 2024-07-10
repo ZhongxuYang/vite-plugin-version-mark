@@ -17,6 +17,7 @@
     "lodash-es": "^4.17.21",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vite-plugin-version-mark": "workspace:*"
   }
 }

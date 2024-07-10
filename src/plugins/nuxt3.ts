@@ -1,7 +1,7 @@
 // https://github.com/nuxt-modules/google-adsense/blob/master/src/module.ts
 import {defineNuxtModule} from '@nuxt/kit'
 import type {NuxtModule} from '@nuxt/schema'
-import {VitePluginVersionMarkInput, analyticOptions} from './core/main'
+import {VitePluginVersionMarkInput, analyticOptions} from './core'
 
 type ModuleOptions = VitePluginVersionMarkInput
 

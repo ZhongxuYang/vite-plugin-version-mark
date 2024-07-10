@@ -27,7 +27,6 @@ async function buildVite(pluginConfig: VitePluginVersionMarkInput, entryPath, en
 
   // @ts-ignore
   const codeStr = file.source || file.code
-  console.log(codeStr);
   
   return await codeStr.toString()
 }

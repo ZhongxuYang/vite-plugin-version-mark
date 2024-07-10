@@ -8,9 +8,9 @@
 
 > Automatically insert the version or git_commit_sha in your Vite/Nuxt project.
 
-<div align="center" style="padding: 20px 0;">
+<div align="center">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
-    <img src="https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version.svg" width="200px" />
+    <img src="https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version.svg" width="300px" height="100px" />
   </a>
 </div>
 

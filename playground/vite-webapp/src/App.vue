@@ -10,8 +10,9 @@ const versionInfo = computed(() => `Version: ${__VITE_VERSION__}`)
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    <br />
+    <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark" target="_blank">
+      <img src="/version.svg" class="logo vue" alt="Version Mark logo" />
     </a>
   </div>
   <HelloWorld :msg="versionInfo" />

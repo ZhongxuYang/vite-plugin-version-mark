@@ -143,6 +143,11 @@ git branch -r --contains <COMMIT_SHA>
 查看 [CHANGELOG](./CHANGELOG.md)
 
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ZhongxuYang/vite-plugin-version-mark&type=Date)](https://star-history.com/#ZhongxuYang/vite-plugin-version-mark&Date)
+
+
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/vite-plugin-version-mark/latest.svg?style=flat&colorA=18181B
 [npm-version-href]: https://npmjs.com/package/vite-plugin-version-mark

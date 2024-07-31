@@ -148,10 +148,10 @@ View [CHANGELOG](./CHANGELOG.md)
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/vite-plugin-version-mark/latest.svg?style=flat&colorA=18181B
-[npm-version-href]: https://npmjs.com/package/vite-plugin-version-mark
+[npm-version-href]: https://www.npmjs.com/package/vite-plugin-version-mark?activeTab=versions
 
 [npm-downloads-src]: https://img.shields.io/npm/dm/vite-plugin-version-mark.svg?style=flat&colorA=18181B
-[npm-downloads-href]: https://npmjs.com/package/vite-plugin-version-mark
+[npm-downloads-href]: https://npmcharts.com/compare/vite-plugin-version-mark?interval=7&minimal=true
 
 [types-src]: https://img.shields.io/npm/types/vite-plugin-version-mark.svg?style=flat&colorA=18181B
 [types-href]: https://npmjs.com/package/vite-plugin-version-mark

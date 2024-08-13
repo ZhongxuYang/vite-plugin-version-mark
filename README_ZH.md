@@ -30,7 +30,8 @@
 </div>
 
 ## 使用样例
-![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)
+
+[![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)](https://zhongxuyang.github.io/vite-plugin-version-mark)
 
 ## 安装
 ```sh

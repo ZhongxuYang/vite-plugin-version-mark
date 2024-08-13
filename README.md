@@ -28,8 +28,9 @@
 
 </div>
 
-## Demo
-![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)
+## Example
+
+[![](https://raw.githubusercontent.com/ZhongxuYang/images/dev/common/version-shot.png)](https://zhongxuyang.github.io/vite-plugin-version-mark)
 
 ## Install
 ```sh

@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21.x'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm -F vite build
+
+      - name: Deploy - zhongxuyang.github.io
+        uses: peaceiris/actions-gh-pages@v3.7.0
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: playground/vite-webapp/dist

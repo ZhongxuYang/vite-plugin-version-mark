@@ -13,6 +13,7 @@ const testPlugin: () => Plugin = () => ({
 })
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vite-plugin-version-mark',
   build: {
     sourcemap: true,
   },

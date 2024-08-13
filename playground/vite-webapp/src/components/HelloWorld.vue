@@ -1,9 +1,10 @@
 <script setup lang="ts">
-defineProps<{ msg: string }>()
+import {computed} from 'vue'
+const versionInfo = computed(() => `Version: ${__VITE_VERSION__}`)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ versionInfo }}</h1>
 </template>
 
 <style scoped>

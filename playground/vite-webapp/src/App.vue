@@ -1,21 +1,16 @@
-<script setup lang="ts">
-import {computed} from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-
-const versionInfo = computed(() => `Version: ${__VITE_VERSION__}`)
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <br />
-    <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark" target="_blank">
-      <img src="/version.svg" class="logo vue" alt="Version Mark logo" />
-    </a>
+    <div>
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" class="logo" alt="Vite logo" />
+      </a>
+      <br />
+      <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark" target="_blank">
+        <img src="/version.svg" class="logo vue" alt="Version Mark logo" />
+      </a>
+    </div>
+    <router-view />
   </div>
-  <HelloWorld :msg="versionInfo" />
 </template>
 
 <style scoped>

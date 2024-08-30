@@ -13,6 +13,6 @@
       "@types/node",
     ]
   },
-  "include": ["src"],
+  "include": ["src", "playground"],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,6 @@
 import {defineConfig} from 'vite'
 import type {Plugin} from 'vite'
 import vue from '@vitejs/plugin-vue'
-// @ts-ignore
 import {vitePluginVersionMark} from '../../src/plugins/vite'
 
 const testPlugin: () => Plugin = () => ({
@@ -9,7 +8,7 @@ const testPlugin: () => Plugin = () => ({
   config (config) {
     // get version in vitePlugin if you open `ifGlobal`
     console.log(config.define)
-  }
+  },
 })
 // https://vitejs.dev/config/
 export default defineConfig({

@@ -1,14 +1,13 @@
-import { defineConfig } from 'vite'
-// @ts-ignore
-import { vitePluginVersionMark } from '../../src/plugins/vite'
+import {defineConfig} from 'vite'
+import {vitePluginVersionMark} from '../../src/plugins/vite'
 
 export default defineConfig({
   build: {
     lib: {
       entry: './src/main.ts',
       name: 'Counter',
-      fileName: 'counter'
-    }
+      fileName: 'counter',
+    },
   },
   plugins: [
     vitePluginVersionMark({

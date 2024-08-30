@@ -1,4 +1,4 @@
-import { defineConfig, Format, Options } from "tsup"
+import {defineConfig, Format, Options} from 'tsup'
 
 const defaultConfig = {
   sourcemap: true,

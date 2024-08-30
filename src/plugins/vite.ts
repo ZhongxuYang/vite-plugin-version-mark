@@ -24,13 +24,13 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
         const keyName =  `__${printName}__`
         return {
           define: {
-            [keyName]: JSON.stringify(printVersion)
+            [keyName]: JSON.stringify(printVersion),
           },
         }
       }
     },
 
-    async renderChunk(code, chunk, options) {
+    async renderChunk(code, chunk) {
       if (chunk.isEntry) {
         const {
           ifExport,
@@ -59,24 +59,30 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       } = await getVersionMarkConfig()
 
       const els: IndexHtmlTransformResult = []
-      ifMeta && els.push({
-        tag: 'meta',
-        injectTo: 'head-prepend',
-        attrs: {
-          name: 'application-name',
-          content: printInfo,
-        },
-      })
-      ifLog && els.push({
-        tag: 'script',
-        injectTo: 'body',
-        children: `console.log("${printInfo}")`
-      })
-      ifGlobal && els.push({
-        tag: 'script',
-        injectTo: 'body',
-        children: `__${printName}__ = "${printVersion}"`
-      })
+      if (ifMeta) {
+        els.push({
+          tag: 'meta',
+          injectTo: 'head-prepend',
+          attrs: {
+            name: 'application-name',
+            content: printInfo,
+          },
+        })
+      }
+      if (ifLog) {
+        els.push({
+          tag: 'script',
+          injectTo: 'body',
+          children: `console.log("${printInfo}")`,
+        })
+      }
+      if (ifGlobal) {
+        els.push({
+          tag: 'script',
+          injectTo: 'body',
+          children: `__${printName}__ = "${printVersion}"`,
+        })
+      }
 
       return els
     },

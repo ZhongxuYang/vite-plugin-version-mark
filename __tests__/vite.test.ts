@@ -25,16 +25,15 @@ async function buildVite(pluginConfig: VitePluginVersionMarkInput, entryPath, en
     item => item.fileName === entryFilename,
   ) as OutputAsset | OutputChunk
 
-  // @ts-ignore
   const codeStr = file.source || file.code
   
   return await codeStr.toString()
 }
 
 // https://github.com/Applelo/unplugin-inject-preload/blob/main/test/vite.test.ts#L24
-describe('vitePlugin', () => {
-  describe('name', () => {
-    test('name: Custom', async () => {
+describe('VitePlugin', () => {
+  describe('Name', () => {
+    test('assigned', async () => {
       const output = await buildVite(
         {
           name: 'my-test-name',
@@ -51,7 +50,7 @@ describe('vitePlugin', () => {
     })
   })
 
-  describe('version & output', () => {
+  describe('Assigned version', () => {
     test('output: None', async () => {
       const output = await buildVite(
         {
@@ -143,3 +142,5 @@ describe('vitePlugin', () => {
   // describe('command', () => { })
   // describe('plugin usage', () => { })
 })
+
+// describe('NuxtPlugin', () => {})

@@ -24,21 +24,25 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
     nuxt.options.app.head.script = nuxt.options.app.head.script || []
     nuxt.options.vite.define = nuxt.options.vite.define || {}
 
-    ifMeta && nuxt.options.app.head.meta.push({
-      name: 'application-name',
-      content: printInfo,
-    })
-    ifLog && nuxt.options.app.head.script.push({
-      children: `console.log("${printInfo}")`
-    })
+    if (ifMeta) {
+      nuxt.options.app.head.meta.push({
+        name: 'application-name',
+        content: printInfo,
+      })
+    }
+    if (ifLog) { 
+      nuxt.options.app.head.script.push({
+        children: `console.log("${printInfo}")`,
+      })
+    }
     if (ifGlobal) {
       nuxt.options.vite.define[`__${printName}__`] = JSON.stringify(printVersion)
       nuxt.options.app.head.script.push({
-        children: `__${printName}__ = "${printVersion}"`
+        children: `__${printName}__ = "${printVersion}"`,
       })
     }
-  }
+  },
 })
 
-export type { ModuleOptions }
+export type {ModuleOptions}
 export default nuxt3Module

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed} from 'vue'
-const versionInfo = computed(() => `Version: ${__VITE_VERSION__}`)
+const versionInfo = computed(() => `Version: ${window.__VITE_VERSION__}`)
 </script>
 
 <template>

@@ -11,6 +11,9 @@ node_modules
 pnpm-global
 demo
 
+.output
+.nuxt
+
 ### Node template
 # Logs
 logs

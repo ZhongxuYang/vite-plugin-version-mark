@@ -58,6 +58,7 @@ export default defineConfig({
       ifMeta: true,
       ifLog: true,
       ifGlobal: true,
+      // outputFile: true,
     })
   ],
 })
@@ -77,6 +78,7 @@ export default defineNuxtConfig({
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
+      // outputFile: true,
     }]
   ],
 })
@@ -99,7 +101,7 @@ export default defineNuxtConfig({
 | ifGlobal | 在window上定义变量 *\`\_\_${APPNAME}\_VERSION\_\_\`* <br/>[对于TypeScript使用者, 请确保您在 env.d.ts 或者 vite-env.d.ts 文件中定义该变量，以便通过类型检查。](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | 在 `<head>` 中添加 `<meta name="application-name" content="{APPNAME_VERSION}: {version}">` | `boolean` | true | `0.0.1+` |
 | ifExport | 在入口文件导出版本字段。这在您使用vite构建   `library mode`时或许会用到。<br />通过 `import { {APPNAME}_VERSION} from <your_library_name>` | `boolean` | false | `0.0.11+` |
-
+| outputFile | 构建时根据版本生成一个静态文件，具体配置详见下方的 `outputFile` 配置项说明 | `boolean`/`function` | false | `0.1.1+` |
 
 > **版本字段**的取值优先级为: `command` > `ifShortSHA`  > `ifGitSHA` > `version`
 
@@ -143,6 +145,24 @@ git branch -r --contains <COMMIT_SHA>
 
 查看 [CHANGELOG](./CHANGELOG.md)
 
+### outputFile配置项说明
+
+如需启用可设置为true，会在相对构建目录(vite默认为dist，nuxt3默认为.output/public)下创建路径为“.well-known/version”的文件，内容为当前版本号。
+
+也可以设置为一个函数，该函数接收版本号作为参数，并返回一个对象，以便自行定义生成的内容信息，例如：
+
+```ts
+// vite.config.ts
+vitePluginVersionMark({
+  // ...other options
+  outputFile: (version) => ({
+    path: 'custom/version.json',
+    content: `{"version":"${version}"}`,
+  })
+}),
+```
+
+如此配置便可以生成一个名为“custom/version.json”的文件，内容为 `{"version":"${当前版本号}"}`。
 
 ## Star History
 

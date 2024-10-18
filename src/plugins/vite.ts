@@ -101,7 +101,7 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
           await mkdir(resolve(outDir, dir), {recursive: true})
           const outputFilePath = resolve(outDir, path)
           await writeFile(outputFilePath, content)
-          console.log(`Generate version file in ${outputFilePath}`)
+          this.info(`Generate version file in ${outputFilePath}`)
         } catch (error) {
           this.error(`Failed to generate version file at ${path}: ${(error as Error).message}`)
         }

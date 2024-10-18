@@ -48,10 +48,16 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
       nuxt.hook('nitro:build:public-assets', async ({options: {output: {publicDir}}}) => {
         await Promise.all(fileList.map(async ({path, content = ''}) => {
           const dir = dirname(path)
-          await mkdir(resolve(publicDir, dir), {recursive: true})
+          const fullDir = resolve(publicDir, dir)
           const outputFilePath = resolve(publicDir, path)
-          await writeFile(outputFilePath, content) 
-          console.info(`Generate version file in ${outputFilePath}`)
+          try {
+            await mkdir(fullDir, {recursive: true})
+            await writeFile(outputFilePath, content)
+            console.info(`Generated version file in ${outputFilePath}`)
+          } catch (error) {
+            console.error(`Failed to generate file at ${outputFilePath}:`, error)
+            throw error
+          }
         }))
       })
     }

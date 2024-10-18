@@ -96,11 +96,15 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       const {fileList} = await getVersionMarkConfig()
       if (!fileList.length) return
       await Promise.all(fileList.map(async ({path, content = ''}) => {
-        const dir = dirname(path)
-        await mkdir(resolve(outDir, dir), {recursive: true})
-        const outputFilePath = resolve(outDir, path)
-        await writeFile(outputFilePath, content)
-        this.info(`Generate version file in ${outputFilePath}`)
+        try {
+          const dir = dirname(path)
+          await mkdir(resolve(outDir, dir), {recursive: true})
+          const outputFilePath = resolve(outDir, path)
+          await writeFile(outputFilePath, content)
+          console.log(`Generate version file in ${outputFilePath}`)
+        } catch (error) {
+          this.error(`Failed to generate version file at ${path}: ${(error as Error).message}`)
+        }
       }))
     },
   } as Plugin

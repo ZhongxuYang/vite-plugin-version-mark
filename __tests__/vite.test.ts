@@ -24,12 +24,17 @@ async function buildVite(pluginConfig: VitePluginVersionMarkInput, entryPath: st
   const output = Array.isArray(outputs) ? outputs[0].output : outputs.output
   const file = output.find(
     item => item.fileName === entryFilename,
-  )!
+  ) 
+  if (!file) {
+    throw new Error(`File with name ${entryFilename} not found in output.`)
+  }
   let codeStr = ''
   if ('source' in file) {
     codeStr = file.source.toString()
   } else if ('code' in file) {
     codeStr = file.code
+  } else {
+    throw new Error('The file object lacks both `source` and `code` properties.')
   }
   return codeStr
 }
@@ -165,22 +170,22 @@ describe('VitePlugin', () => {
           },
         },
       ) 
-      const filePath = resolve(outDir, '.well-known/version')
+      const defaultFilePath = resolve(outDir, '.well-known/version')
       // File should be created
-      expect(existsSync(filePath)).toBe(true) 
+      expect(existsSync(defaultFilePath)).toBe(true) 
       // File should contain version
-      expect(readFileSync(filePath, 'utf-8')).toEqual('1.0.0')
+      expect(readFileSync(defaultFilePath, 'utf-8')).toEqual('1.0.0')
     })
 
     test('output: File(custom function)', async () => {
       const outDir = resolve(__dirname, entryPathForVite, 'dist')
-      const customFilePath = resolve(outDir, 'custom/version.json')
+      const customPath = 'custom/version.json'
       await buildVite(
         {
           version: '1.0.0',
           outputFile(version){
             return {
-              path: customFilePath,
+              path: customPath,
               content: `{"version":"${version}"}`,
             }
           },
@@ -203,6 +208,7 @@ describe('VitePlugin', () => {
           },
         },
       ) 
+      const customFilePath = resolve(outDir, customPath)
       // custom file should be created
       expect(existsSync(customFilePath)).toBe(true) 
       // custom file should contain version with json format

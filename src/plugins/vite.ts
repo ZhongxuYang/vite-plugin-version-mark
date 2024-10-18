@@ -1,3 +1,5 @@
+import {mkdir, writeFile} from 'node:fs/promises'
+import {resolve,dirname} from 'node:path'
 import {analyticOptions} from './core'
 import type {VitePluginVersionMarkInput, VitePluginVersionMarkConfig} from './core'
 import type {Plugin, IndexHtmlTransformResult} from 'vite'
@@ -9,11 +11,12 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
     if (!versionMarkConfig) versionMarkConfig = await analyticOptions(options)
     return versionMarkConfig
   }
+  let outDir: string
 
   return {
     name: 'vite-plugin-version-mark',
 
-    async config () {
+    async config() {
       const {
         ifGlobal,
         printName,
@@ -21,7 +24,7 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       } = await getVersionMarkConfig()
 
       if (ifGlobal) {
-        const keyName =  `__${printName}__`
+        const keyName = `__${printName}__`
         return {
           define: {
             [keyName]: JSON.stringify(printVersion),
@@ -37,7 +40,7 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
           printName,
           printVersion,
         } = await getVersionMarkConfig()
-        
+
         let modifiedCode = code
         if (ifExport) modifiedCode += `\nexport const ${printName} = '${printVersion}';`
 
@@ -45,7 +48,7 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
           code: modifiedCode,
           map: null,
         }
-      } 
+      }
     },
 
     async transformIndexHtml() {
@@ -86,5 +89,19 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
 
       return els
     },
-  }
+    configResolved(config) {
+      outDir = config.build.outDir
+    },
+    async closeBundle() {
+      const {fileList} = await getVersionMarkConfig()
+      if (!fileList.length) return
+      await Promise.all(fileList.map(async ({path, content = ''}) => {
+        const dir = dirname(path)
+        await mkdir(resolve(outDir, dir), {recursive: true})
+        const outputFilePath = resolve(outDir, path)
+        await writeFile(outputFilePath, content)
+        this.info(`Generate version file in ${outputFilePath}`)
+      }))
+    },
+  } as Plugin
 }

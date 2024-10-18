@@ -16,9 +16,14 @@ interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
 interface VitePluginVersionMarkCommandInput extends VitePluginVersionMarkBaseInput {
   command?: string
 }
+interface VitePluginVersionMarkFileInput extends VitePluginVersionMarkBaseInput {
+  outputFile?: boolean | ((version: string) => ({ path: string, content: string })) | ((version: string) => ({ path: string, content: string })[])
+}
 
-export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput
+export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput & VitePluginVersionMarkFileInput
+
 export type VitePluginVersionMarkConfig = {
+  fileList: { path: string, content: string }[]
   ifMeta: boolean
   ifLog: boolean
   ifGlobal: boolean
@@ -54,17 +59,31 @@ export const analyticOptions: (options: VitePluginVersionMarkInput) => Promise<V
     ifLog = true,
     ifGlobal = true,
     ifExport = false,
+    outputFile,
   } = options
   const finalCommand = command ?? (ifShortSHA ? 'git rev-parse --short HEAD' : ifGitSHA ? 'git rev-parse HEAD' : undefined)
   const printVersion = (finalCommand ? await execCommand(finalCommand) : version) as string
   const printName = `${name?.replace(/((?!\w).)/g, '_')?.toLocaleUpperCase?.()}_VERSION`
   const printInfo = `${printName}: ${printVersion}`
+  const fileList = (() => {
+    switch (typeof outputFile) {
+    case 'function': {
+      const res = outputFile(printVersion)
+      return Array.isArray(res) ? res : [res] 
+    }
+    case 'boolean':
+      return outputFile ? [{path: '.well-known/version', content: printVersion}] : [] 
+    default:
+      return []
+    }
+  })()
 
   return {
     ifMeta,
     ifLog,
     ifGlobal,
     ifExport,
+    fileList,
     printVersion,
     printName,
     printInfo,

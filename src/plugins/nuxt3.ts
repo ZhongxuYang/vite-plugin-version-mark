@@ -1,4 +1,6 @@
 // https://github.com/nuxt-modules/google-adsense/blob/master/src/module.ts
+import {mkdir, writeFile} from 'node:fs/promises'
+import {resolve,dirname} from 'node:path'
 import {defineNuxtModule} from '@nuxt/kit'
 import type {NuxtModule} from '@nuxt/schema'
 import {VitePluginVersionMarkInput, analyticOptions} from './core'
@@ -12,6 +14,7 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
   // https://github.com/nuxt/bridge/blob/main/packages/bridge/src/module.ts
   async setup(options, nuxt) {
     const {
+      fileList,
       ifMeta,
       ifLog,
       ifGlobal,
@@ -39,6 +42,17 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
       nuxt.options.vite.define[`__${printName}__`] = JSON.stringify(printVersion)
       nuxt.options.app.head.script.push({
         children: `__${printName}__ = "${printVersion}"`,
+      })
+    }
+    if (fileList.length > 0) {
+      nuxt.hook('nitro:build:public-assets', async ({options: {output: {publicDir}}}) => {
+        await Promise.all(fileList.map(async ({path, content = ''}) => {
+          const dir = dirname(path)
+          await mkdir(resolve(publicDir, dir), {recursive: true})
+          const outputFilePath = resolve(publicDir, path)
+          await writeFile(outputFilePath, content) 
+          console.info(`Generate version file in ${outputFilePath}`)
+        }))
       })
     }
   },

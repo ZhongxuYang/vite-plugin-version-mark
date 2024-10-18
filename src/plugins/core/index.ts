@@ -16,8 +16,14 @@ interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
 interface VitePluginVersionMarkCommandInput extends VitePluginVersionMarkBaseInput {
   command?: string
 }
+
+interface OutputFile { 
+  path: string; 
+  content: string 
+}
+type OutputFileFunction = (version: string) => OutputFile | OutputFile[]
 interface VitePluginVersionMarkFileInput extends VitePluginVersionMarkBaseInput {
-  outputFile?: boolean | ((version: string) => ({ path: string, content: string })) | ((version: string) => ({ path: string, content: string })[])
+  outputFile?: boolean | OutputFileFunction
 }
 
 export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput & VitePluginVersionMarkFileInput

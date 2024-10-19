@@ -98,6 +98,7 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 | ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window<br/>[For TypeScript users, make sure to add the type declarations in the env.d.ts or vite-env.d.ts file to get type checks and Intellisense.](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |
 | ifExport | export the version field in the entry file. This may be used when you use vite to build a `library mode`.<br/>Through `import { {APPNAME}_VERSION } from <your_library_name>` | `boolean` | false | `0.0.11+` |
+| outputFile | The build generates a static file based on the version, as described in the `outputFile` configuration below. | `boolean`/`function` | false | `0.1.1+` |
 
 > The **version field** takes precedence: `command` > `ifShortSHA`  > `ifGitSHA` > `version`
 
@@ -142,6 +143,24 @@ git branch -r --contains <COMMIT_SHA>
 
 View [CHANGELOG](./CHANGELOG.md)
 
+### outputFile Configuration Option
+
+If you want to enable it, you can set it to true, and it will create a file with the path “.well-known/version” and the content of the current version number in the relative build directory (dist for vite and .output/public for nuxt3).
+
+Alternatively, it can be set to a function that takes the version number as a parameter and returns an object. This allows you to define the content information generated, for example:
+
+```ts
+// vite.config.ts
+vitePluginVersionMark({
+  // ...other options
+  outputFile: (version) => ({
+    path: 'custom/version.json',
+    content: `{"version":"${version}"}`,
+  })
+}),
+```
+
+With this configuration, a file named "custom/version.json" will be generated, and its content will be {"version":"${current version number}"}.
 
 ## Star History
 

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
+      outputFile: true,
     }],
   ],
 })

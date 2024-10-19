@@ -143,11 +143,9 @@ export default defineConfig({
 git branch -r --contains <COMMIT_SHA>
 ```
 
-查看 [CHANGELOG](./CHANGELOG.md)
+### `outputFile` 配置项说明
 
-### outputFile配置项说明
-
-如需启用可设置为true，会在相对构建目录(vite默认为dist，nuxt3默认为.output/public)下创建路径为“.well-known/version”的文件，内容为当前版本号。
+如需启用可设置为 `true`，会在相对构建目录（`vite` 默认为 *dist*，`nuxt3` 默认为 *.output/public*）下创建路径为 `.well-known/version` 的文件，内容为当前版本号。
 
 也可以设置为一个函数，该函数接收版本号作为参数，并返回一个对象，以便自行定义生成的内容信息，例如：
 
@@ -162,12 +160,14 @@ vitePluginVersionMark({
 }),
 ```
 
-如此配置便可以生成一个名为“custom/version.json”的文件，内容为 `{"version":"${当前版本号}"}`。
+如此配置便可以生成一个名为 `custom/version.json` 的文件，内容为 `{"version":"${当前版本号}"}`。
 
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ZhongxuYang/vite-plugin-version-mark&type=Date)](https://star-history.com/#ZhongxuYang/vite-plugin-version-mark&Date)
 
+
+查看 [CHANGELOG](./CHANGELOG.md)
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/vite-plugin-version-mark/latest.svg?style=flat&colorA=18181B

@@ -141,11 +141,9 @@ Through the `git` command below, you can list all branches containing the specif
 git branch -r --contains <COMMIT_SHA>
 ```
 
-View [CHANGELOG](./CHANGELOG.md)
-
 ### outputFile Configuration Option
 
-If you want to enable it, you can set it to true, and it will create a file with the path “.well-known/version” and the content of the current version number in the relative build directory (dist for vite and .output/public for nuxt3).
+If you want to enable it, you can set it to `true`, and it will create a file with the path `.well-known/version` and the content of the current version number in the relative build directory (*dist* for `vite` and *.output/public* for `nuxt3`).
 
 Alternatively, it can be set to a function that takes the version number as a parameter and returns an object. This allows you to define the content information generated, for example:
 
@@ -160,11 +158,14 @@ vitePluginVersionMark({
 }),
 ```
 
-With this configuration, a file named "custom/version.json" will be generated, and its content will be {"version":"${current version number}"}.
+With this configuration, a file named `custom/version.json` will be generated, and its content will be `{"version":"${current version number}"}`.
 
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ZhongxuYang/vite-plugin-version-mark&type=Date)](https://star-history.com/#ZhongxuYang/vite-plugin-version-mark&Date)
+
+
+View [CHANGELOG](./CHANGELOG.md)
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/vite-plugin-version-mark/latest.svg?style=flat&colorA=18181B

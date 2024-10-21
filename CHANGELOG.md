@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## v0.1.2
+* Fix type `VitePluginVersionMarkInput`.
+* Update README.
+
 ## v0.1.1
 
-* Support `outputFile` (by [@peerless-hero](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/13))
+* Support `outputFile`. (by [@peerless-hero](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/13))
 
 ## v0.1.0
 

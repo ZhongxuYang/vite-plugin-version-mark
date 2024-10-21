@@ -52,6 +52,7 @@ export default defineConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
+      // outputFile: true,
       // ifGitSHA: true,
       ifShortSHA: true,
       ifMeta: true,
@@ -71,6 +72,7 @@ export default defineNuxtConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
+      // outputFile: true,
       // ifGitSHA: true, 
       ifShortSHA: true, 
       ifMeta: true, 
@@ -102,6 +104,25 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 
 > The **version field** takes precedence: `command` > `ifShortSHA`  > `ifGitSHA` > `version`
 
+### `outputFile` Configuration Option
+
+If you want to enable it, you can set it to `true`, and it will create a file with the path `.well-known/version` and the content of the current version number in the relative build directory (*dist* for `vite` and *.output/public* for `nuxt3`).
+
+Alternatively, it can be set to a function that takes the version number as a parameter and returns an object. This allows you to define the content information generated, for example:
+
+```ts
+// vite.config.ts
+vitePluginVersionMark({
+  // ...other options
+
+  outputFile: (version) => ({
+    path: 'custom/version.json',
+    content: `{"version":"${version}"}`,
+  })
+}),
+```
+
+With this configuration, a file named `custom/version.json` will be generated, and its content will be `{"version":"${current version number}"}`.
 
 ## Other
 
@@ -140,25 +161,6 @@ Through the `git` command below, you can list all branches containing the specif
 ```sh
 git branch -r --contains <COMMIT_SHA>
 ```
-
-### outputFile Configuration Option
-
-If you want to enable it, you can set it to `true`, and it will create a file with the path `.well-known/version` and the content of the current version number in the relative build directory (*dist* for `vite` and *.output/public* for `nuxt3`).
-
-Alternatively, it can be set to a function that takes the version number as a parameter and returns an object. This allows you to define the content information generated, for example:
-
-```ts
-// vite.config.ts
-vitePluginVersionMark({
-  // ...other options
-  outputFile: (version) => ({
-    path: 'custom/version.json',
-    content: `{"version":"${version}"}`,
-  })
-}),
-```
-
-With this configuration, a file named `custom/version.json` will be generated, and its content will be `{"version":"${current version number}"}`.
 
 ## Star History
 

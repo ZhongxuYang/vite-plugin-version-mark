@@ -53,12 +53,12 @@ export default defineConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
-      ifGitSHA: true,
+      // outputFile: true,
+      // ifGitSHA: true,
       ifShortSHA: true,
       ifMeta: true,
       ifLog: true,
       ifGlobal: true,
-      // outputFile: true,
     })
   ],
 })
@@ -73,12 +73,12 @@ export default defineNuxtConfig({
       // name: 'test-app',
       // version: '0.0.1',
       // command: 'git describe --tags',
-      ifGitSHA: true, 
+      // outputFile: true,
+      // ifGitSHA: true, 
       ifShortSHA: true, 
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
-      // outputFile: true,
     }]
   ],
 })
@@ -104,6 +104,26 @@ export default defineNuxtConfig({
 | outputFile | 构建时根据版本生成一个静态文件，具体配置详见下方的 `outputFile` 配置项说明 | `boolean`/`function` | false | `0.1.1+` |
 
 > **版本字段**的取值优先级为: `command` > `ifShortSHA`  > `ifGitSHA` > `version`
+
+### `outputFile` 配置项说明
+
+如需启用可设置为 `true`，会在相对构建目录（`vite` 默认为 *dist*，`nuxt3` 默认为 *.output/public*）下创建路径为 `.well-known/version` 的文件，内容为当前版本号。
+
+也可以设置为一个函数，该函数接收版本号作为参数，并返回一个对象，以便自行定义生成的内容信息，例如：
+
+```ts
+// vite.config.ts
+vitePluginVersionMark({
+  // ...other options
+
+  outputFile: (version) => ({
+    path: 'custom/version.json',
+    content: `{"version":"${version}"}`,
+  })
+}),
+```
+
+如此配置便可以生成一个名为 `custom/version.json` 的文件，内容为 `{"version":"${当前版本号}"}`。
 
 ## 其它
 
@@ -142,25 +162,6 @@ export default defineConfig({
 ```sh
 git branch -r --contains <COMMIT_SHA>
 ```
-
-### `outputFile` 配置项说明
-
-如需启用可设置为 `true`，会在相对构建目录（`vite` 默认为 *dist*，`nuxt3` 默认为 *.output/public*）下创建路径为 `.well-known/version` 的文件，内容为当前版本号。
-
-也可以设置为一个函数，该函数接收版本号作为参数，并返回一个对象，以便自行定义生成的内容信息，例如：
-
-```ts
-// vite.config.ts
-vitePluginVersionMark({
-  // ...other options
-  outputFile: (version) => ({
-    path: 'custom/version.json',
-    content: `{"version":"${version}"}`,
-  })
-}),
-```
-
-如此配置便可以生成一个名为 `custom/version.json` 的文件，内容为 `{"version":"${当前版本号}"}`。
 
 ## Star History
 

@@ -1,5 +1,11 @@
 import childProcess from 'child_process'
 
+interface OutputFile {
+  path: string;
+  content: string
+}
+type OutputFileFunction = (version: string) => OutputFile | OutputFile[]
+
 interface VitePluginVersionMarkBaseInput {
   name?: string
   version?: string
@@ -7,6 +13,7 @@ interface VitePluginVersionMarkBaseInput {
   ifLog?: boolean
   ifGlobal?: boolean
   ifExport?: boolean
+  outputFile?: boolean | OutputFileFunction
 }
 
 interface VitePluginVersionMarkGitInput extends VitePluginVersionMarkBaseInput {
@@ -17,16 +24,7 @@ interface VitePluginVersionMarkCommandInput extends VitePluginVersionMarkBaseInp
   command?: string
 }
 
-interface OutputFile { 
-  path: string; 
-  content: string 
-}
-type OutputFileFunction = (version: string) => OutputFile | OutputFile[]
-interface VitePluginVersionMarkFileInput extends VitePluginVersionMarkBaseInput {
-  outputFile?: boolean | OutputFileFunction
-}
-
-export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput & VitePluginVersionMarkFileInput
+export type VitePluginVersionMarkInput = VitePluginVersionMarkGitInput & VitePluginVersionMarkCommandInput
 
 export type VitePluginVersionMarkConfig = {
   fileList: { path: string, content: string }[]

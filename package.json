@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-version-mark",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Automatically insert the version or git_commit_sha in your Vite/Nuxt project.",
   "keywords": [
     "vite",

@@ -75,7 +75,7 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       if (ifLog) {
         els.push({
           tag: 'script',
-          injectTo: 'body',
+          injectTo: 'head',
           children: `console.log("${printInfo}")`,
         })
       }

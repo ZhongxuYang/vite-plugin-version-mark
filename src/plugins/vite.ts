@@ -75,14 +75,14 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
       if (ifLog) {
         els.push({
           tag: 'script',
-          injectTo: 'body',
+          injectTo: 'head',
           children: `console.log("${printInfo}")`,
         })
       }
       if (ifGlobal) {
         els.push({
           tag: 'script',
-          injectTo: 'body',
+          injectTo: 'head',
           children: `__${printName}__ = "${printVersion}"`,
         })
       }

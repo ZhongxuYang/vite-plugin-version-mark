@@ -95,7 +95,7 @@ Then you can use `vite-plugin-version-mark` ! 🎉
 | version | application version | `string` | `version` in package.json | `0.0.1+` |
 | ifGitSHA | use git commit SHA as the version | `boolean` | false | `0.0.1+` |
 | ifShortSHA | use git commit short SHA as the version | `boolean` | false | `0.0.1+` |
-| command | provide a custom command to retrieve the version <br/>For example: `git describe --tags` | `string` | git rev-parse --short HEAD | `0.0.8+` |
+| command | provide a custom command to retrieve the version <br/>For example: `git describe --tags`. If you don't set command, when `ifShortSHA` is true, the default value is `git rev-parse --short HEAD`, when `ifGitSHA` is true, the default value is `git rev-parse HEAD`.  | `string` | undefined | `0.0.8+` |
 | ifLog | print info in the Console | `boolean` | true | `0.0.1+` |
 | ifGlobal | set a variable named *\`\_\_${APPNAME}\_VERSION\_\_\`* in the window<br/>[For TypeScript users, make sure to add the type declarations in the env.d.ts or vite-env.d.ts file to get type checks and Intellisense.](https://vitejs.dev/config/shared-options.html#define) | `boolean` | true | `0.0.4+` |
 | ifMeta | add \<meta name="application-name" content="{APPNAME_VERSION}: {version}"> in the \<head> | `boolean` | true | `0.0.1+` |

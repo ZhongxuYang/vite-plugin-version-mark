@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.1.4
+* Optimize tsup config type. (by [@chouchouji](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/16))
+
 ## v0.1.3
 * Store script tag for global variable in `head` instead of `body`. (by [@richardvanthof](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/15))
 

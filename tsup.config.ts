@@ -1,11 +1,11 @@
-import {defineConfig, type Format, type Options} from 'tsup'
+import {defineConfig, type Options} from 'tsup'
 
-const defaultConfig = {
+const defaultConfig: Options = {
   sourcemap: true,
   clean: true,
   dts: true,
-  target: 'esnext' as Options['target'],
-  format: ['cjs', 'esm'] as Format[],
+  target: 'esnext',
+  format: ['cjs', 'esm'],
 }
 
 export default defineConfig([

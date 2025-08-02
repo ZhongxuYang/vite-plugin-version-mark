@@ -30,10 +30,9 @@ export default defineConfig({
       command: {
         commands: [
           {alias: 'branch', cmd: 'git rev-parse --abbrev-ref HEAD'},
-          {alias: 'tag', cmd: 'git describe --tags'},
           {alias: 'sha', cmd: 'git rev-parse --short HEAD'},
         ],
-        format: '{tag}-{branch}-{sha}',
+        format: '{branch}-{sha}',
         // separator: '-'
       },
     }),

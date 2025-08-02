@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## v0.2.0
+
+🎉 **Major Feature Release: Multi-Command Support**
+
+* **NEW**: Multi-command support - Execute multiple commands and combine their results
+* **NEW**: Custom format templates with `{alias}` placeholder syntax
+* **NEW**: Error handling strategies: `strict`, `skip`, and `fallback`
+* **NEW**: Parallel command execution for better performance
+* **NEW**: Command configuration with aliases, timeouts, and fallback values
+* **NEW**: Custom separators for combining results
+* **ENHANCED**: Complete TypeScript type definitions with detailed JSDoc comments
+* **ENHANCED**: Comprehensive test coverage (71 tests)
+* **ENHANCED**: Updated documentation with multi-command examples
+* **ENHANCED**: New playground demo project showcasing all features
+* **MAINTAINED**: Full backward compatibility - existing string `command` configurations work unchanged
+
+### Multi-Command Examples
+
+```typescript
+// Simple multi-command with default separator
+command: {
+  commands: [
+    'git rev-parse --abbrev-ref HEAD',  // Get branch name
+    'git rev-parse --short HEAD'        // Get short commit SHA
+  ]
+  // Output: "main-abc1234"
+}
+
+// Advanced multi-command with custom format
+command: {
+  commands: [
+    { alias: 'branch', cmd: 'git rev-parse --abbrev-ref HEAD', fallback: 'unknown' },
+    { alias: 'sha', cmd: 'git rev-parse --short HEAD', timeout: 5000 }
+  ],
+  format: '{branch}-{sha}',
+  errorStrategy: 'fallback'
+  // Output: "main-abc1234"
+}
+```
+
 ## v0.1.4
 * Optimize tsup config type. (by [@chouchouji](https://github.com/ZhongxuYang/vite-plugin-version-mark/pull/16))
 

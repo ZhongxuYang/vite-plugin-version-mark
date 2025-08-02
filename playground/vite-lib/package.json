@@ -20,8 +20,7 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "vite": "^6.0.1",
+    "vite": "^7.0.6",
     "vite-plugin-version-mark": "workspace:*"
   }
 }

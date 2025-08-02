@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Command Version Mark Demo</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+      .version-info {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-family: 'Monaco', 'Menlo', monospace;
+      }
+      .example {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .example h3 {
+        margin-top: 0;
+        color: #333;
+      }
+      .code {
+        background: #f8f8f8;
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-family: 'Monaco', 'Menlo', monospace;
+        font-size: 0.9em;
+      }
+      .error {
+        color: #d73a49;
+      }
+      .success {
+        color: #28a745;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚀 Multi-Command Version Mark Demo</h1>
+    
+    <p>This demo showcases the new multi-command support in <code>vite-plugin-version-mark</code>. 
+    Check the browser console and page source to see the generated version information!</p>
+
+    <div class="example">
+      <h3>Example 1: Simple Multi-Command</h3>
+      <p>Combines branch name and commit SHA with default separator:</p>
+      <div class="version-info" id="simple-version">Loading...</div>
+      <div class="code">
+        command: {<br>
+        &nbsp;&nbsp;commands: ['git rev-parse --abbrev-ref HEAD', 'git rev-parse --short HEAD']<br>
+        }
+      </div>
+    </div>
+
+    <div class="example">
+      <h3>Example 2: Advanced Multi-Command</h3>
+      <p>Uses custom format template with fallback values:</p>
+      <div class="version-info" id="advanced-version">Loading...</div>
+      <div class="code">
+        command: {<br>
+        &nbsp;&nbsp;commands: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'tag', cmd: 'git describe --tags --abbrev=0', fallback: 'v0.0.0' },<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'branch', cmd: 'git rev-parse --abbrev-ref HEAD', fallback: 'unknown' },<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'sha', cmd: 'git rev-parse --short HEAD' }<br>
+        &nbsp;&nbsp;],<br>
+        &nbsp;&nbsp;format: '{tag}-{branch}-{sha}',<br>
+        &nbsp;&nbsp;errorStrategy: 'fallback'<br>
+        }
+      </div>
+    </div>
+
+    <div class="example">
+      <h3>Example 3: Error Handling Demo</h3>
+      <p>Demonstrates fallback strategy with an invalid command:</p>
+      <div class="version-info" id="error-demo-version">Loading...</div>
+      <div class="code">
+        command: {<br>
+        &nbsp;&nbsp;commands: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'branch', cmd: 'git rev-parse --abbrev-ref HEAD' },<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'invalid', cmd: 'this-command-does-not-exist', fallback: 'fallback-value' },<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ alias: 'sha', cmd: 'git rev-parse --short HEAD' }<br>
+        &nbsp;&nbsp;],<br>
+        &nbsp;&nbsp;format: '{branch}-{invalid}-{sha}',<br>
+        &nbsp;&nbsp;errorStrategy: 'fallback'<br>
+        }
+      </div>
+    </div>
+
+    <div class="example">
+      <h3>Example 4: Custom Separator</h3>
+      <p>Uses custom separator without format template:</p>
+      <div class="version-info" id="separator-version">Loading...</div>
+      <div class="code">
+        command: {<br>
+        &nbsp;&nbsp;commands: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'git rev-parse --abbrev-ref HEAD',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'git rev-parse --short HEAD',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'git describe --tags --abbrev=0 || echo "no-tag"'<br>
+        &nbsp;&nbsp;],<br>
+        &nbsp;&nbsp;separator: '_'<br>
+        }
+      </div>
+    </div>
+
+    <h2>📋 Features Demonstrated</h2>
+    <ul>
+      <li>✅ <strong>Backward Compatibility</strong>: Existing string commands still work</li>
+      <li>✅ <strong>Multiple Commands</strong>: Execute multiple git commands simultaneously</li>
+      <li>✅ <strong>Custom Formatting</strong>: Use template syntax with {alias} placeholders</li>
+      <li>✅ <strong>Error Handling</strong>: Choose from strict, skip, or fallback strategies</li>
+      <li>✅ <strong>Performance</strong>: Parallel command execution for better performance</li>
+      <li>✅ <strong>Flexibility</strong>: Mix string commands and detailed configurations</li>
+    </ul>
+
+    <h2>🔍 How to Inspect</h2>
+    <ol>
+      <li><strong>Console</strong>: Open browser dev tools to see version logs</li>
+      <li><strong>Global Variables</strong>: Check <code>window.__MULTI_COMMAND_SIMPLE_VERSION__</code> etc.</li>
+      <li><strong>Meta Tags</strong>: View page source to see meta tags in &lt;head&gt;</li>
+      <li><strong>Network Tab</strong>: See how versions are used in build process</li>
+    </ol>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

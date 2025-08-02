@@ -20,13 +20,22 @@ export default defineConfig({
     vue(),
     vitePluginVersionMark({
       // ifGitSHA: true, 
-      // command: 'git describe --tags',
       ifShortSHA: true,
       ifMeta: true, 
       ifLog: true, 
       ifGlobal: true,
-      ifExport: true,
-      outputFile: true,
+      // ifExport: true,
+      outputFile: false,
+      // command: 'git describe --tags',
+      command: {
+        commands: [
+          {alias: 'branch', cmd: 'git rev-parse --abbrev-ref HEAD'},
+          {alias: 'tag', cmd: 'git describe --tags'},
+          {alias: 'sha', cmd: 'git rev-parse --short HEAD'},
+        ],
+        format: '{tag}-{branch}-{sha}',
+        // separator: '-'
+      },
     }),
     testPlugin(),
   ],

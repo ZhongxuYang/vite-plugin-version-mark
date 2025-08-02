@@ -1,6 +1,7 @@
 {
-  "name": "nuxt3",
+  "name": "nuxt-webapp",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -8,9 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "nuxt": "^3.5.2",
-    "vite-plugin-version-mark": "workspace:*"
+  "dependencies": {
+    "nuxt": "^4.0.1",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
   }
 }

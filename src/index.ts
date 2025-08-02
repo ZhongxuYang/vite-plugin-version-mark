@@ -1,2 +1,2 @@
 export * from './plugins/vite'
-export * from './plugins/nuxt3'
+export * from './plugins/nuxt'

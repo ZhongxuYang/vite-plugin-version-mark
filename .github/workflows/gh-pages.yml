@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '21.x'
+          node-version: '22.x'
 
       - uses: pnpm/action-setup@v4
         with:
@@ -26,7 +26,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm -F vite build
+        run: pnpm -F vite-webapp build
 
       - name: Deploy - zhongxuyang.github.io
         uses: peaceiris/actions-gh-pages@v3.7.0

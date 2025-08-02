@@ -37,7 +37,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 21
+          node-version: 22
 
       # 安装 pnpm
       - uses: pnpm/action-setup@v4

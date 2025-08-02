@@ -1,5 +1,5 @@
 {
-  "name": "vite",
+  "name": "vite-webapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^6.0.1",
     "lodash-es": "^4.17.21",
     "vite": "^7.0.6",
-    "vue-router": "^4.3.0",
+    "vue-router": "^4.5.1",
     "vite-plugin-version-mark": "workspace:*"
   }
 }

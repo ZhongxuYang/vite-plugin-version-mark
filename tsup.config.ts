@@ -11,7 +11,7 @@ const defaultConfig: Options = {
 export default defineConfig([
   {
     entry: {
-      index: 'src/plugins/nuxt3.ts',
+      index: 'src/plugins/nuxt.ts',
     },
     outDir: 'dist/nuxt',
     external: ['@nuxt/kit'],

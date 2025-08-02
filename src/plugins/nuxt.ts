@@ -8,9 +8,9 @@ import type {VitePluginVersionMarkInput} from './types'
 
 type ModuleOptions = VitePluginVersionMarkInput
 
-const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
+const nuxtModule: NuxtModule<ModuleOptions> = defineNuxtModule({
   meta: {
-    name: 'nuxt-version-mark',
+    name: 'vite-plugin-version-mark',
   },
   // https://github.com/nuxt/bridge/blob/main/packages/bridge/src/module.ts
   async setup(options, nuxt) {
@@ -36,13 +36,13 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
     }
     if (ifLog) { 
       nuxt.options.app.head.script.push({
-        children: `console.log("${printInfo}")`,
+        textContent: `console.log("${printInfo}")`,
       })
     }
     if (ifGlobal) {
       nuxt.options.vite.define[`__${printName}__`] = JSON.stringify(printVersion)
       nuxt.options.app.head.script.push({
-        children: `__${printName}__ = "${printVersion}"`,
+        textContent: `__${printName}__ = "${printVersion}"`,
       })
     }
     if (fileList.length > 0) {
@@ -66,4 +66,4 @@ const nuxt3Module: NuxtModule<ModuleOptions> = defineNuxtModule({
 })
 
 export type {ModuleOptions}
-export default nuxt3Module
+export default nuxtModule

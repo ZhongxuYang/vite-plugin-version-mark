@@ -1,22 +1,15 @@
 {
-  "name": "vite",
+  "name": "vite-multi-command-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "vue": "^3.2.47"
-  },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
-    "@vitejs/plugin-vue": "^4.1.0",
-    "lodash-es": "^4.17.21",
     "vite": "^7.0.6",
-    "vue-router": "^4.3.0",
     "vite-plugin-version-mark": "workspace:*"
   }
 }

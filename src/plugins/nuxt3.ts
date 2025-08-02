@@ -3,7 +3,8 @@ import {mkdir, writeFile} from 'node:fs/promises'
 import {resolve,dirname} from 'node:path'
 import {defineNuxtModule} from '@nuxt/kit'
 import type {NuxtModule} from '@nuxt/schema'
-import {VitePluginVersionMarkInput, analyticOptions} from './core'
+import {analyticOptions} from './core'
+import type {VitePluginVersionMarkInput} from './types'
 
 type ModuleOptions = VitePluginVersionMarkInput
 

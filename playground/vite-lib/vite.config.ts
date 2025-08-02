@@ -1,4 +1,4 @@
-import {defineConfig, type Plugin} from 'vite'
+import {defineConfig} from 'vite'
 import {vitePluginVersionMark} from '../../src/plugins/vite'
 
 export default defineConfig({
@@ -17,7 +17,7 @@ export default defineConfig({
       ifLog: true, 
       ifGlobal: true,
       ifExport: true,
-      outputFile: true,
-    }) as Plugin,
+      outputFile: false,
+    }),
   ],
 })

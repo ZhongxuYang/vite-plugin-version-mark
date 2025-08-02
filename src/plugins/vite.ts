@@ -1,11 +1,11 @@
 import {mkdir, writeFile} from 'node:fs/promises'
 import {resolve,dirname} from 'node:path'
 import {analyticOptions} from './core'
-import type {VitePluginVersionMarkInput, VitePluginVersionMarkConfig} from './core'
-import type {Plugin, IndexHtmlTransformResult} from 'vite'
+import type {VitePluginVersionMarkInput, VitePluginVersionMarkConfig} from './types'
+import type {PluginOption, IndexHtmlTransformResult} from 'vite'
 
 export type {VitePluginVersionMarkInput}
-export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Plugin = (options = {}) => {
+export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => PluginOption = (options = {}) => {
   let versionMarkConfig: VitePluginVersionMarkConfig
   const getVersionMarkConfig = async () => {
     if (!versionMarkConfig) versionMarkConfig = await analyticOptions(options)
@@ -107,5 +107,5 @@ export const vitePluginVersionMark: (options?: VitePluginVersionMarkInput) => Pl
         }
       }))
     },
-  } as Plugin
+  }
 }

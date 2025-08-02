@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18",
     "nuxt": "^3.5.2",
     "vite-plugin-version-mark": "workspace:*"
   }

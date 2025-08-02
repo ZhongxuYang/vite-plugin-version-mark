@@ -67,6 +67,5 @@
     "@nuxt/schema": ">3.3.0",
     "nuxt": ">3.3.0",
     "vite": "*"
-  },
-  "packageManager": "pnpm@8.6.11+sha1.35052eb3a470525c15ce915ca4f4012f44adfc18"
+  }
 }

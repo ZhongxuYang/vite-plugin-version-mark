@@ -42,7 +42,7 @@ export class CommandExecutor {
             ),
           )
         } else {
-          const output = stdout.toString()?.replace('\n', '')
+          const output = stdout.toString()?.trim()
           resolve(output)
         }
       })

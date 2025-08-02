@@ -99,18 +99,12 @@ export class ResultFormatter {
 
     formatted = formatted.replace(regex, (match, placeholder) => {
       const result = results.get(placeholder)
-      if (!result) {
-        throw new FormatError(
-          `No result found for placeholder: ${placeholder}`,
-          template,
-        )
-      }
 
-      if (!result.success && !result.result) {
+      if (!result!.success && !result!.result) {
         return ''
       }
 
-      return result.result || ''
+      return result!.result || ''
     })
 
     return formatted

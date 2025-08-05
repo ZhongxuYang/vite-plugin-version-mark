@@ -65,7 +65,6 @@
   "peerDependencies": {
     "@nuxt/kit": ">3.3.0",
     "@nuxt/schema": ">3.3.0",
-    "nuxt": ">3.3.0",
     "vite": "*"
   }
 }

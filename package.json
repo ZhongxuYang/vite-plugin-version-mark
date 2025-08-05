@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-version-mark",
   "version": "0.2.1",
-  "description": "Automatically insert the version or git_commit_sha in your Vite/Nuxt project.",
+  "description": "A Vite/Nuxt plugin that automatically injects version information (package.json version, git commit SHA, or custom commands) into your application via console, global variables, meta tags, and static files.",
   "keywords": [
     "vite",
     "version",

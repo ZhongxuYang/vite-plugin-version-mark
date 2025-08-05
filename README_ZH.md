@@ -6,7 +6,7 @@
 
 # vite-plugin-version-mark
 
-> 自动插入版本号到你的 Vite/Nuxt 项目中.
+> Vite/Nuxt插件，能自动将版本信息（如package.json中的版本号、Git SHA值或自定义命令）通过控制台、全局变量、元标签以及静态文件等方式注入到您的应用程序中。
 
 <div align="center">
   <a href="https://github.com/ZhongxuYang/vite-plugin-version-mark/tree/main">
